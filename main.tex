@@ -365,4 +365,146 @@ $\sin^2\theta+\cos^2\theta=1$（$\theta\in\mathbb R$）出发，
 \]
 \hfill$\square$
 
+
+% 2026-10-19，第 6、7 张板书：实变量中值定理的局限、C_{-1} 的计算及例题。
+\subsection*{补充：复变洛必达法则为何不能照搬实变中值定理}
+
+\paragraph{板书中的想法}
+对\emph{实变量} $x$，假设 $f,g$ 在实区间满足拉格朗日中值定理的条件，
+且 $f(x_0)=g(x_0)=0$，则存在夹在 $x_0$ 与 $x$ 之间的
+$\xi_x,\eta_x$，使得
+\begin{align*}
+  f(x)-f(x_0)&=f'(\xi_x)(x-x_0),\\
+  g(x)-g(x_0)&=g'(\eta_x)(x-x_0).
+\end{align*}
+于是（在分母非零时）
+\[
+  \frac{f(x)-f(x_0)}{g(x)-g(x_0)}
+  =\frac{f'(\xi_x)(x-x_0)}
+         {g'(\eta_x)(x-x_0)}
+  =\frac{f'(\xi_x)}{g'(\eta_x)}.
+\]
+当 $x\to x_0$ 时，区间内的中间点满足
+$\xi_x\to x_0$、$\eta_x\to x_0$。若另有
+$f',g'$ 在 $x_0$ 连续、$g'(x_0)\ne0$，则可推出
+\[
+  \lim_{x\to x_0}
+    \frac{f(x)-f(x_0)}{g(x)-g(x_0)}
+  =\frac{f'(x_0)}{g'(x_0)}.
+\]
+
+\paragraph{为什么老师在板书中将这一步划掉？（补全说明）}
+上述是实数区间上的推导，\textbf{不能直接推广到复变量 $z$}：
+复值解析函数一般不满足形如
+$f(z)-f(z_0)=f'(\xi)(z-z_0)$ 的拉格朗日中值定理，
+因此不能在复平面中凭空引入上述中间点 $\xi,\eta$。
+例如 $f(z)=e^z$，取 $z_0=0$、$z=2\pi i$，
+则 $f(z)-f(z_0)=0$，但 $f'(\xi)=e^\xi\ne0$
+对所有 $\xi\in\mathbb C$ 均成立。
+这就排除了相应的复数版中值定理。
+
+同时，实变量推导中出现的 $\xi_x$、$\eta_x$
+是\emph{两个不同的中间点}；
+在一般的实变洛必达定理中，不能未经额外条件
+便将 $f'(\xi_x)/g'(\eta_x)$
+视为相同点处的导数比 $f'(t)/g'(t)$。
+实变法则通常使用柯西中值定理；
+\textbf{复变情形则使用之前板书中的零点分解式（Taylor 展开）证明}，
+无需依赖中值定理。
+
+\subsection*{Laurent 系数 $C_{-1}$ 的计算}
+
+\paragraph{一阶极点的系数}
+设 $z_0$ 是 $f(z)$ 的一阶极点，其 Laurent 展开为
+\[
+  f(z)=\frac{C_{-1}}{z-z_0}
+       +C_0+C_1(z-z_0)+\cdots.
+\]
+两侧乘以 $z-z_0$，有
+\[
+  (z-z_0)f(z)=C_{-1}+C_0(z-z_0)
+     +C_1(z-z_0)^2+\cdots.
+\]
+令 $z\to z_0$，可得
+\[
+  \boxed{C_{-1}=\lim_{z\to z_0}(z-z_0)f(z).}
+\]
+这里 $C_{-1}$ 是 $(z-z_0)^{-1}$ 项的系数，也称
+$f$ 在 $z_0$ 处的\textbf{留数}（residue）。
+
+\paragraph{常用公式：$f=p/g$ 且分母有一阶零点}
+若
+\[
+  f(z)=\frac{p(z)}{g(z)},\qquad
+  p(z_0)\ne0,\quad g(z_0)=0,\quad g'(z_0)\ne0,
+\]
+且 $p,g$ 在 $z_0$ 附近解析，
+则 $z_0$ 是 $f$ 的一阶极点。
+由于
+\[
+  g(z)=g'(z_0)(z-z_0)+o(z-z_0),
+  \qquad
+  p(z)=p(z_0)+p'(z_0)(z-z_0)+o(z-z_0),
+\]
+因此
+\begin{align*}
+  C_{-1}
+  &=\lim_{z\to z_0}(z-z_0)\frac{p(z)}{g(z)}\\
+  &=\frac{p(z_0)}{g'(z_0)}.
+\end{align*}
+故
+\[
+  \boxed{\operatorname{Res}(f,z_0)
+    =C_{-1}=\frac{p(z_0)}{g'(z_0)}.}
+\]
+
+\paragraph{例 1：$\boldsymbol{\sin(z^2)/z^3}$ 在原点的留数}
+板书中的展开式表明，本例取
+\[
+  f(z)=\frac{\sin(z^2)}{z^3},\qquad z_0=0.
+\]
+利用 $\sin w=w-w^3/3!+w^5/5!-\cdots$，有
+\begin{align*}
+  f(z)
+  &=\frac{z^2-\dfrac{z^6}{3!}
+                +\dfrac{z^{10}}{5!}-\cdots}{z^3}\\
+  &=\frac1z-\frac{z^3}{3!}+\frac{z^7}{5!}-\cdots.
+\end{align*}
+所以 $z=0$ 是一阶极点，且
+\[
+  \boxed{C_{-1}
+  =\lim_{z\to0}z f(z)
+  =\lim_{z\to0}\frac{\sin(z^2)}{z^2}
+  =1.}
+\]
+\emph{注意：}不能直接将本例代入上面的
+$p(z_0)/g'(z_0)$ 公式，因为若取
+$p(z)=\sin(z^2)$、$g(z)=z^3$，
+则 $p(0)=g'(0)=0$。应先约去公因子或直接展开。
+
+\paragraph{例 2：$\boldsymbol{1/(1+z^n)}$ 在各极点的留数}
+设 $n\in\mathbb N^+$，取
+\[
+  f(z)=\frac{1}{1+z^n}.
+\]
+分母零点满足 $z^n=-1$。
+将板书中含糊的 $(-1)^{1/n}$ 明确写为 $n$ 个不同的根：
+\[
+  \boxed{z_k=e^{\,i(2k+1)\pi/n},
+    \qquad k=0,1,\ldots,n-1.}
+\]
+取 $p(z)=1$、$g(z)=1+z^n$。则
+\[
+  g(z_k)=0,\qquad g'(z_k)=nz_k^{n-1}\ne0,
+\]
+故每个 $z_k$ 都是一阶极点，其 Laurent 系数为
+\begin{align*}
+  C_{-1}^{(k)}
+  &=\operatorname{Res}(f,z_k)
+   =\frac{p(z_k)}{g'(z_k)}\\
+  &=\frac{1}{n z_k^{n-1}}
+   =-\frac{z_k}{n}.
+\end{align*}
+其中最后一步用了 $z_k^n=-1$。
+
 \end{document}
