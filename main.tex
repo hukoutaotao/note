@@ -755,4 +755,120 @@ $\frac{1}{t(1+rt)}$，
   }
 \]
 
+
+% 第 11 张板书：考试重点——含 cos/sin 分母的三角积分。
+\subsection*{考试重点：三角函数分母的定积分（必会例题）}
+
+\begin{center}
+\fbox{\begin{minipage}{0.94\linewidth}
+\centering
+\textbf{【考试重点｜老师明确强调会考】}\\[4pt]
+\textbf{题目：}设 $a,b\in\mathbb R$，$a>|b|\ge0$，计算
+\[
+  I_{a,b}=\int_0^{2\pi}\frac{d\theta}{a+b\cos\theta}
+         =\int_0^{2\pi}\frac{d\theta}{a+b\sin\theta}.
+\]
+\textbf{标准答案：}
+\[
+  \boxed{\displaystyle I_{a,b}=\frac{2\pi}{\sqrt{a^2-b^2}}}.
+\]
+\end{minipage}}
+\end{center}
+
+\paragraph{第一步：解释老师板书中的余弦--正弦积分等式}
+对连续函数 $F\in C^0([-1,1])$，将
+$\theta\mapsto\theta+\pi/2$ 并利用 $2\pi$ 周期性，得
+\begin{align*}
+  \int_0^{2\pi} F(\cos\theta)\,d\theta
+  &=\int_{\pi/2}^{5\pi/2}F(\sin t)\,dt\\
+  &=\int_0^{2\pi}F(\sin t)\,dt.
+\end{align*}
+其中 $\cos\theta=\sin(\theta+\pi/2)$。
+而老师同时在板书中写了第一象限的等式
+\[
+  \int_0^{\pi/2}F(\cos\theta)\,d\theta
+  =\int_0^{\pi/2}F(\sin\theta)\,d\theta,
+\]
+它可由 $t=\pi/2-\theta$ 得到；对其他三个象限
+也可分别作 $t=\pi-\theta$、$t=3\pi/2-\theta$、
+$t=2\pi-\theta$ 等代换，再比较对应区间的积分。
+对本题取 $F(x)=1/(a+bx)$ 即可，因为
+$a>|b|$ 保证 $a+bx>0$（$-1\le x\le1$）。
+
+\paragraph{第二步：留数定理法（复变函数考试标准解答）}
+令 $z=e^{i\theta}$，当 $\theta$ 从 $0$ 增至 $2\pi$ 时，
+$z$ 沿单位圆 $|z|=1$ 逆时针一周，且
+\[
+  \cos\theta=\frac12\left(z+\frac1z\right),
+  \qquad d\theta=\frac{dz}{iz}.
+\]
+因此
+\begin{align*}
+  I_{a,b}
+  &=\oint_{|z|=1}
+      \frac{1}{a+\frac b2(z+z^{-1})}\frac{dz}{iz}\\
+  &=\frac{2}{i}\oint_{|z|=1}
+      \frac{dz}{bz^2+2az+b}.
+\end{align*}
+记 $\Delta=\sqrt{a^2-b^2}>0$。
+若 $b\ne0$，分母的两个根为
+\[
+  z_{\pm}=\frac{-a\pm\Delta}{b}.
+\]
+其中
+\[
+  z_+=\frac{-a+\Delta}{b}
+      =-\frac{b}{a+\Delta},
+  \qquad |z_+|=\frac{|b|}{a+\Delta}<1,
+\]
+而由 $z_+z_-=1$ 知 $|z_-|>1$。
+因此单位圆内部只有一个一阶极点 $z_+$。
+在这个极点处，
+\[
+  \operatorname{Res}_{z=z_+}
+   \frac{2/i}{bz^2+2az+b}
+  =\frac{2/i}{2bz_++2a}
+  =\frac{1}{i\Delta},
+\]
+其中使用了 $bz_++a=\Delta$。
+由留数定理，
+\[
+  I_{a,b}
+   =2\pi i\cdot\frac{1}{i\Delta}
+   =\boxed{\frac{2\pi}{\sqrt{a^2-b^2}}}.
+\]
+\textbf{特例 $b=0$：} 原积分直接为
+$\int_0^{2\pi}d\theta/a=2\pi/a$；
+由于 $a>0$，它仍符合上面的统一公式。
+
+\paragraph{附：不用复变函数的快速手算解法}
+若题目只要求计算而不指定使用留数定理，
+可使用半角正切代换 $t=\tan(\theta/2)$。
+注意 $\theta=\pi$ 时 $t$ 经过无穷远点：
+必须分别处理 $[0,\pi)$ 与 $(\pi,2\pi]$ 两段。
+由
+\[
+  \cos\theta=\frac{1-t^2}{1+t^2},
+  \qquad d\theta=\frac{2\,dt}{1+t^2},
+\]
+得到
+\begin{align*}
+  I_{a,b}
+  &=2\int_{-\infty}^{+\infty}
+       \frac{dt}{(a+b)+(a-b)t^2}\\
+  &=\frac{2}{\sqrt{(a+b)(a-b)}}
+       \left[
+        \arctan\left(t\sqrt{\frac{a-b}{a+b}}\right)
+       \right]_{-\infty}^{+\infty}\\
+  &=\frac{2\pi}{\sqrt{a^2-b^2}}.
+\end{align*}
+因 $a>|b|$，有 $a+b>0$、$a-b>0$，
+所以代换与上式均成立。
+
+\paragraph{考试易错点}
+这里必须明确 $a>|b|$：它保证原积分分母无零点，
+且单位圆上不出现极点。
+复变法应说明极点在单位圆内外的位置；
+实变半角代换时不可漏掉跨越 $\theta=\pi$ 的第二段积分。
+
 \end{document}
