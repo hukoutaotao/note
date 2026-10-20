@@ -507,4 +507,148 @@ $p(z)=\sin(z^2)$、$g(z)=z^3$，
 \end{align*}
 其中最后一步用了 $z_k^n=-1$。
 
+
+% 板书第 8 张：高阶极点留数系数 C_{-1} 的计算。
+\paragraph{$n$ 阶极点处 $C_{-1}$ 的导数公式}
+设 $z_0$ 为 $f(z)$ 的 $n$ 阶极点（$n\in\mathbb N^+$），
+则其 Laurent 展开为
+\[
+  f(z)=\frac{C_{-n}}{(z-z_0)^n}
+  +\frac{C_{-(n-1)}}{(z-z_0)^{n-1}}
+  +\cdots+\frac{C_{-1}}{z-z_0}
+  +C_0+C_1(z-z_0)+\cdots,
+  \qquad C_{-n}\ne0.
+\]
+两边同乘 $(z-z_0)^n$，得到
+\begin{align*}
+  h(z):=(z-z_0)^n f(z)
+   &=C_{-n}+C_{-(n-1)}(z-z_0)+\cdots\\
+   &\quad+C_{-1}(z-z_0)^{n-1}
+   +C_0(z-z_0)^n+\cdots.
+\end{align*}
+乘积 $h(z)$ 在 $z_0$ 处具有可去奇点，将其补为
+$h(z_0)=C_{-n}$ 后，$h$ 在 $z_0$ 附近解析。
+
+对上式两侧求 $(n-1)$ 阶导数，再令 $z=z_0$：
+低于 $(n-1)$ 次的多项式项求导后为零；
+高于 $(n-1)$ 次的项在 $z=z_0$ 处为零。
+所以恰好只剩
+\[
+  h^{(n-1)}(z_0)=(n-1)!\,C_{-1}.
+\]
+因此
+\[
+  \boxed{
+    C_{-1}=\operatorname{Res}(f,z_0)
+    =\frac{1}{(n-1)!}
+       \lim_{z\to z_0}
+       \frac{d^{\,n-1}}{dz^{\,n-1}}
+       \bigl[(z-z_0)^n f(z)\bigr]
+  }.
+\]
+当 $n=1$ 时退化为之前的一阶极点公式
+\[
+  C_{-1}=\lim_{z\to z_0}(z-z_0)f(z).
+\]
+若 $f(z)=p(z)/g(z)$ 且
+$p(z_0)\ne0$、$g(z_0)=0$、$g'(z_0)\ne0$，
+则有
+\[
+  C_{-1}=\frac{p(z_0)}{g'(z_0)}.
+\]
+
+% 板书第 9 张：例题：1/(1+z^n) 在大圆周上的积分。
+\subsection*{围道积分例题：$\displaystyle\oint\frac{dz}{1+z^n}$}
+\paragraph{题目}
+设 $n\in\mathbb N^+$，$r>1$，圆周
+$\Gamma_r:|z|=r$ 取正向（逆时针方向）。求
+\[
+  I_{r,n}=\oint_{\Gamma_r}\frac{1}{1+z^n}\,dz.
+\]
+由于 $1+z^n$ 的零点均在 $|z|=1$ 上，
+故当 $r>1$ 时，积分路径不经过任何极点。
+
+\paragraph{解法一：变量代换 $z=1/t$}
+令
+\[
+  t=\frac1z,\qquad dz=-\frac{dt}{t^2}.
+\]
+当 $z$ 沿 $\Gamma_r$ 逆时针行进时，
+$t$ 沿 $|t|=1/r<1$ 顺时针行进。
+记顺时针曲线为 $\Gamma_{1/r}^{-}$，则
+\begin{align*}
+  I_{r,n}
+  &=\oint_{\Gamma_{1/r}^{-}}
+       \frac{1}{1+t^{-n}}\left(-\frac{dt}{t^2}\right)\\
+  &=\oint_{|t|=1/r}^{\mathrm{CCW}}
+       \frac{t^{n-2}}{1+t^n}\,dt.
+\end{align*}
+这里的两个负号分别来自 $dz=-dt/t^2$
+以及积分方向的反转，故相互抵消。
+
+当 $n=1$ 时，
+\[
+  \frac{t^{n-2}}{1+t^n}=\frac{1}{t(1+t)},
+\]
+在 $|t|<1$ 内仅有一阶极点 $t=0$，
+留数为 $1$，因此
+\[
+  I_{r,1}=2\pi i.
+\]
+当 $n\ge2$ 时，$t^{n-2}/(1+t^n)$
+在闭圆盘 $|t|\le1/r<1$ 上解析。
+由柯西积分定理，$I_{r,n}=0$。
+所以
+\[
+  \boxed{I_{r,n}=
+    \begin{cases}
+      2\pi i, & n=1,\\
+      0, & n\ge2.
+    \end{cases}}
+\]
+
+\paragraph{解法二：留数定理（与上一例衔接）}
+令
+\[
+  f(z)=\frac{p(z)}{g(z)}=\frac{1}{1+z^n},
+  \qquad p(z)=1,\quad g(z)=1+z^n.
+\]
+所有 $n$ 个极点为
+\[
+  z_k=e^{i(2k-1)\pi/n},\qquad k=1,\ldots,n,
+  \qquad |z_k|=1<r,
+\]
+且
+\[
+  g'(z_k)=nz_k^{n-1}\ne0.
+\]
+所以每个 $z_k$ 都是一阶极点，
+对应的 Laurent 系数（留数）为
+\[
+  C_{-1}^{(k)}
+    =\frac{p(z_k)}{g'(z_k)}
+    =\frac{1}{nz_k^{n-1}}
+    =-\frac{z_k}{n}.
+\]
+由留数定理，
+\begin{align*}
+  I_{r,n}
+   &=2\pi i\sum_{k=1}^{n}C_{-1}^{(k)}\\
+   &=\frac{2\pi i}{n}
+      \sum_{k=1}^{n}\frac{1}{z_k^{n-1}}
+    =-\frac{2\pi i}{n}\sum_{k=1}^{n}z_k.
+\end{align*}
+若 $n=1$，唯一的根是 $z_1=-1$，故
+$I_{r,1}=2\pi i$。
+
+若 $n\ge2$，这些根构成等比数列：
+\[
+  \sum_{k=1}^{n}z_k
+  =e^{i\pi/n}\sum_{k=0}^{n-1}e^{2\pi ik/n}
+  =e^{i\pi/n}
+      \frac{1-e^{2\pi i}}{1-e^{2\pi i/n}}
+  =0.
+\]
+因此 $I_{r,n}=0$，与解法一一致。
+
 \end{document}
