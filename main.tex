@@ -249,4 +249,120 @@ $\varphi(z_0)=f^{(n)}(z_0)/n!$ 补充定义在 $z_0$
 % 注意：这里的可去奇点属于最初只在 z != z_0 定义的商函数
 % \varphi(z)=f(z)/(z-z_0)^n，而非已在 z_0 解析的 f。
 
+
+% 2026-10-19，第 5 张板书：三角恒等式及复函数的洛必达法则。
+\subsection*{唯一性定理的应用：三角恒等式与欧拉公式}
+
+\paragraph{例 1：复数范围的三角恒等式}
+设
+\[
+  F(z)=\sin^2 z+\cos^2 z.
+\]
+则 $F(z)$ 是整函数，且
+\[
+  F'(z)=2\sin z\cos z-2\cos z\sin z\equiv0.
+\]
+因而 $F(z)$ 为常数。由 $F(0)=1$，得到
+\[
+  \boxed{\sin^2 z+\cos^2 z\equiv1,\quad z\in\mathbb C.}
+\]
+也可以从实数范围内的恒等式
+$\sin^2\theta+\cos^2\theta=1$（$\theta\in\mathbb R$）出发，
+利用解析函数唯一性定理将其推广到整个复平面。
+
+\paragraph{例 2：欧拉公式的解析延拓}
+对任意 $\theta\in\mathbb R$，已知
+\[
+  e^{i\theta}=\cos\theta+i\sin\theta.
+\]
+由于 $e^z$、$\cos z$ 和 $\sin z$ 都是整函数
+（特别地 $(e^z)'=e^z$），考察
+\[
+  H(z)=e^{iz}-\cos z-i\sin z.
+\]
+对所有 $\theta\in\mathbb R$ 都有 $H(\theta)=0$。
+由解析函数唯一性定理，得到
+\[
+  H(z)\equiv0,\qquad
+  \boxed{e^{iz}=\cos z+i\sin z,\quad z\in\mathbb C.}
+\]
+
+\begin{proposition}[复函数的洛必达法则（L'Hospital 法则）]
+若 $f(z)$、$g(z)$ 在 $z_0$ 解析，
+且 $f(z_0)=g(z_0)=0$；
+在 $z_0$ 的某个去心邻域中 $f(z)\ne0$、$g(z)\ne0$，
+则在扩充复平面的意义下，
+\[
+  \boxed{\lim_{z\to z_0}\frac{f(z)}{g(z)}
+   =\lim_{z\to z_0}\frac{f'(z)}{g'(z)}.}
+\]
+上述两个极限均可为有限值或 $\infty$；
+导数商在足够小的去心邻域内有定义。
+\end{proposition}
+
+\paragraph{证明}
+由解析函数零点的孤立性定理，存在 $n,m\in\mathbb N^+$
+以及在 $z_0$ 邻域内解析的函数 $\varphi(z),\psi(z)$，
+使得
+\[
+  \begin{cases}
+    f(z)=(z-z_0)^n\varphi(z),\\
+    g(z)=(z-z_0)^m\psi(z),
+  \end{cases}
+  \qquad
+  \varphi(z_0)\ne0,\quad \psi(z_0)\ne0.
+\]
+因此
+\[
+  \frac{f(z)}{g(z)}
+  =(z-z_0)^{n-m}\frac{\varphi(z)}{\psi(z)}.
+\]
+由 $\varphi(z_0),\psi(z_0)\ne0$ 可得
+\[
+  \lim_{z\to z_0}\frac{f(z)}{g(z)}
+  =
+  \begin{cases}
+     0, & n>m,\\[2pt]
+     \displaystyle\frac{\varphi(z_0)}{\psi(z_0)}
+       \ne0,\infty, & n=m,\\[7pt]
+     \infty, & n<m.
+  \end{cases}
+\]
+
+另一方面，求导可得
+\[
+  \begin{aligned}
+    f'(z)&=n(z-z_0)^{n-1}\varphi(z)
+             +(z-z_0)^n\varphi'(z),\\
+    g'(z)&=m(z-z_0)^{m-1}\psi(z)
+             +(z-z_0)^m\psi'(z).
+  \end{aligned}
+\]
+所以
+\[
+  \frac{f'(z)}{g'(z)}
+  =\frac{n(z-z_0)^{n-1}\varphi(z)+(z-z_0)^n\varphi'(z)}
+         {m(z-z_0)^{m-1}\psi(z)+(z-z_0)^m\psi'(z)}
+  =(z-z_0)^{n-m}
+  \frac{n\varphi(z)+(z-z_0)\varphi'(z)}
+       {m\psi(z)+(z-z_0)\psi'(z)}.
+\]
+于是
+\[
+  \lim_{z\to z_0}\frac{f'(z)}{g'(z)}
+  =
+  \begin{cases}
+     0, & n>m,\\[2pt]
+     \displaystyle\frac{n\varphi(z_0)}{m\psi(z_0)}
+      =\frac{\varphi(z_0)}{\psi(z_0)}, & n=m,\\[7pt]
+     \infty, & n<m.
+  \end{cases}
+\]
+逐项比较两式，得到
+\[
+  \boxed{\lim_{z\to z_0}\frac{f(z)}{g(z)}
+  =\lim_{z\to z_0}\frac{f'(z)}{g'(z)}.}
+\]
+\hfill$\square$
+
 \end{document}
