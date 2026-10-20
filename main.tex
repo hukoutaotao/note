@@ -1359,4 +1359,146 @@ $\int_{C_R}F(z)\,dz\to0$（$R\to\infty$）。
 $\pi/2$，但在 $k=0$ 处原积分是 $0$；
 这是条件收敛广义积分不能随意交换极限的例子。
 
+
+% 第 17、18 张板书：合并重合极点与广义积分的后续练习。
+\subsection*{重合极点：由 $b\to a$ 得到二阶极点的积分}
+
+\paragraph{板书方法：对参数 $b$ 使用洛必达法则}
+沿用上一题的记号，对 $b>a>0$、$k>0$，
+\[
+ I_{a,b,k}
+ =\int_0^\infty
+   \frac{x^3\sin(kx)}{(x^2+a^2)(x^2+b^2)}\,dx
+ =\frac{\pi}{2}
+  \frac{b^2e^{-bk}-a^2e^{-ak}}{b^2-a^2}.
+\]
+令 $b\to a$，则被积函数的分母变为 $(x^2+a^2)^2$。
+由洛必达法则（对 $b$ 求导）
+\begin{align*}
+ \lim_{b\to a} I_{a,b,k}
+ &=\frac{\pi}{2}\lim_{b\to a}
+   \frac{\frac{d}{db}(b^2e^{-bk}-a^2e^{-ak})}
+        {\frac{d}{db}(b^2-a^2)}\\
+ &=\frac{\pi}{2}\lim_{b\to a}
+   \frac{(2b-kb^2)e^{-bk}}{2b}\\
+ &=\frac{\pi(2-ak)e^{-ak}}{4}.
+\end{align*}
+因此
+\[
+ \boxed{
+ J_{a,k}:=\int_0^\infty
+  \frac{x^3\sin(kx)}{(x^2+a^2)^2}\,dx
+ =\frac{\pi(2-ak)}{4e^{ak}},
+ \qquad a>0,\;k>0.}
+\]
+
+\paragraph{重要勘误：板书极限式的负号}
+$\frac{d}{db}(b^2e^{-bk})=(2b-kb^2)e^{-bk}$，
+其中指数求导贡献 \emph{负的} $kb^2e^{-bk}$。
+因此正确分子是 $2-ak$ 而不是 $2+ak$，
+系数是 $\pi/4$ 而不是 $\pi/2$。
+可用 $k\to0^+$ 时 $J_{a,k}\to\pi/2$ 作快速核对。
+
+\paragraph{$k$ 为零或负数时的分段形式}
+原积分在 $k=0$ 时被积函数为零；负 $k$ 利用
+$\sin(kx)=-\sin(|k|x)$。于是
+\[
+ \boxed{
+ J_{a,k}=
+ \begin{cases}
+   \dfrac{\pi(2-ak)}{4e^{ak}}, & k>0,\\[5pt]
+   0,&k=0,\\[4pt]
+   -\dfrac{\pi(2-a|k|)}{4e^{a|k|}}, &k<0.
+ \end{cases}\quad (a>0)}
+\]
+注意 $J_{a,k}$ 在 $k=0$ 不连续：
+从正、负方向分别趋于 $\pi/2$ 与 $-\pi/2$。
+原因是原积分对 $k\ne0$ 仅条件收敛，
+不能任意交换 $k\to0$ 与积分运算。
+
+\paragraph{板书特例：令 $a=b=0$}
+原积分形式退化为经典 Dirichlet 积分
+\[
+ \int_0^\infty\frac{x^3\sin(kx)}{x^4}\,dx
+ =\int_0^\infty\frac{\sin(kx)}{x}\,dx
+ =\begin{cases}
+   \frac{\pi}{2},&k>0,\\
+   0,&k=0,\\
+   -\frac{\pi}{2},&k<0.
+  \end{cases}
+\]
+此处应将 $a=b=0$ 当作\emph{单独的广义积分}；
+由于原积分在 $x=0$ 的结构发生变化，不能只凭
+把之前的条件 $b>a>0$ 直接替换为 $a=b=0$
+就认定每一步推导仍然成立。
+
+\subsection*{下一组课堂练习：更高阶极点及多个不同极点}
+\paragraph{练习一：三阶重合极点}
+老师板书提出
+\[
+ \int_0^\infty
+    \frac{x^3\sin(kx)}{(x^2+a^2)^3}\,dx.
+\]
+\textbf{补充解答（$a>0,k>0$）：}
+上一题所得 $J_{a,k}$ 可对参数 $a$ 求导，
+因为
+\[
+ \frac{\partial}{\partial a}\frac{1}{(x^2+a^2)^2}
+ =-\frac{4a}{(x^2+a^2)^3}.
+\]
+于是
+\begin{align*}
+ \int_0^\infty\frac{x^3\sin(kx)}{(x^2+a^2)^3}\,dx
+ &=-\frac1{4a}\frac{\partial J_{a,k}}{\partial a}\\
+ &=-\frac1{4a}\frac{\partial}{\partial a}
+     \left[\frac{\pi}{4}(2-ak)e^{-ak}\right]\\
+ &=\boxed{\frac{\pi k(3-ak)e^{-ak}}{16a}}.
+\end{align*}
+此积分在无穷远处绝对收敛；$k=0$ 时为零，
+$k<0$ 时由正 $|k|$ 的结果取负。
+
+\paragraph{练习二：三个不同的一阶极点}
+板书写出（条件 $a>b>c>0$）
+\[
+ \int_0^\infty
+ \frac{x^3\sin(kx)}
+ {(x^2+a^2)(x^2+b^2)(x^2+c^2)}\,dx.
+\]
+\textbf{补充方法（$k>0$）：}令 $S=\{a,b,c\}$，
+对
+\[
+ \frac{x^3}{\prod_{\alpha\in S}(x^2+\alpha^2)}
+ =\sum_{\alpha\in S}
+    A_\alpha\frac{x}{x^2+\alpha^2},
+ \qquad
+ A_\alpha=\frac{-\alpha^2}
+ {\prod_{\beta\in S,\ \beta\ne\alpha}(\beta^2-\alpha^2)}
+\]
+作部分分式分解，再使用
+$\int_0^\infty \frac{x\sin(kx)}{x^2+\alpha^2}\,dx
+ =\frac{\pi}{2}e^{-\alpha k}$，得到
+\[
+ \boxed{
+ \int_0^\infty
+ \frac{x^3\sin(kx)}
+ {\prod_{\alpha\in S}(x^2+\alpha^2)}\,dx
+ =\frac{\pi}{2}\sum_{\alpha\in S}A_\alpha e^{-\alpha k},
+ \quad k>0.
+ }
+\]
+同样可以用上半圆围道和极点 $ai,bi,ci$ 求留数。
+
+\paragraph{练习三：分子为余弦函数}
+老师还列出
+\[
+ \int_0^\infty
+ \frac{x^3\cos(kx)}
+ {(x^2+a^2)(x^2+b^2)(x^2+c^2)}\,dx.
+\]
+本题与上题的不同之处是：
+在整个实轴上，$x^3\cos(kx)$ 是奇函数，
+其对称积分为零，\emph{不能直接把整个实轴的积分
+当成两倍的半轴余弦积分}。课堂板书仅提出题目，
+此处保留作为待继续计算的练习。
+
 \end{document}
