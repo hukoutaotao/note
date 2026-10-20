@@ -651,4 +651,108 @@ $I_{r,1}=2\pi i$。
 \]
 因此 $I_{r,n}=0$，与解法一一致。
 
+
+% 第 10 张板书：根的求和与参数化圆周积分。
+\subsection*{前一例补充：利用多项式系数计算根的和}
+沿用前一题 $z_k^n=-1$（$k=1,\ldots,n$）的记号。
+因为 $z_k^n=-1$，故
+\[
+   \frac1{z_k^{n-1}}=-z_k,
+   \qquad
+   I_{r,n}=-\frac{2\pi i}{n}\sum_{k=1}^{n}z_k.
+\]
+另一方面，按这些互异根分解多项式，
+\[
+  z^n+1=\prod_{k=1}^{n}(z-z_k)
+  =z^n-\left(\sum_{k=1}^{n}z_k\right)z^{n-1}
+  +\cdots+(-1)^n\prod_{k=1}^{n}z_k.
+\]
+当 $n\ge2$ 时，左侧的 $z^{n-1}$ 项系数为 $0$，
+故根据韦达定理
+\[
+  \sum_{k=1}^{n}z_k=0,\qquad I_{r,n}=0\quad(n\ge2).
+\]
+当 $n=1$ 时，唯一的根为 $z_1=-1$，所以
+$I_{r,1}=2\pi i$。这给出了上一题结果的另一种解释。
+
+\subsection*{含参数 $r$ 的圆周积分}
+设 $r>0$，$n\in\mathbb N^+$，$R>r$。
+以下所有圆周 $\Gamma_R:|z|=R$ 均取逆时针正向。
+为避免与上一例的记号混淆，将两个新积分分别记为
+\[
+  A_{R,r,n}:=\oint_{\Gamma_R}\frac{dz}{r^n+z^n},
+  \qquad
+  B_{R,r,n}:=\oint_{\Gamma_R}\frac{z^{2n}}{r^n+z^n}\,dz.
+\]
+
+\paragraph{第一题：$\boldsymbol{A_{R,r,n}}$，利用倒数变换}
+令 $z=1/t$，则 $dz=-dt/t^2$。
+当 $z$ 沿 $|z|=R$ 逆时针行进时，
+$t$ 沿 $|t|=1/R$ 顺时针行进。于是
+\begin{align*}
+  A_{R,r,n}
+  &=\oint_{\substack{|t|=1/R\\\mathrm{clockwise}}}
+      \frac{1}{r^n+t^{-n}}
+      \left(-\frac{dt}{t^2}\right)\\
+  &=\oint_{\substack{|t|=1/R\\\mathrm{counterclockwise}}}
+      \frac{t^{n-2}}{1+r^n t^n}\,dt.
+\end{align*}
+这里负号和曲线方向反转正好抵消。
+由于 $1/R<1/r$，分母 $1+r^nt^n$ 在
+$|t|\le 1/R$ 内没有零点。
+
+若 $n=1$，被积函数为
+$\frac{1}{t(1+rt)}$，
+圆内只有 $t=0$ 这一一阶极点，其留数为 $1$，
+故 $A_{R,r,1}=2\pi i$。
+
+若 $n\ge2$，$t^{n-2}/(1+r^nt^n)$
+在 $|t|\le1/R$ 内解析，
+由柯西积分定理 $A_{R,r,n}=0$。
+因此
+\[
+  \boxed{
+    A_{R,r,n}
+    =\oint_{|z|=R}\frac{dz}{r^n+z^n}
+    =\begin{cases}
+       2\pi i,& n=1,\\
+       0,& n\ge2.
+      \end{cases}
+    \qquad R>r>0.
+  }
+\]
+
+\paragraph{第二题：$\boldsymbol{B_{R,r,n}}$，先作代数分解}
+由平方差公式，
+\[
+  z^{2n}
+  =z^{2n}-r^{2n}+r^{2n}
+  =(z^n-r^n)(z^n+r^n)+r^{2n}.
+\]
+所以
+\[
+  \frac{z^{2n}}{r^n+z^n}
+  =z^n-r^n+\frac{r^{2n}}{r^n+z^n}.
+\]
+沿圆周积分，
+\begin{align*}
+  B_{R,r,n}
+  &=\oint_{\Gamma_R}(z^n-r^n)\,dz
+    +r^{2n}\oint_{\Gamma_R}\frac{dz}{r^n+z^n}\\
+  &=0+r^{2n}A_{R,r,n}.
+\end{align*}
+第一项为零，因为 $z^n-r^n$ 是整函数。
+代入第一题的结果，
+\[
+  \boxed{
+    B_{R,r,n}
+    =\oint_{|z|=R}\frac{z^{2n}}{r^n+z^n}\,dz
+    =\begin{cases}
+       2\pi i\,r^2,&n=1,\\
+       0,&n\ge2.
+      \end{cases}
+    \qquad R>r>0.
+  }
+\]
+
 \end{document}
