@@ -182,4 +182,71 @@ $h(z)$ 的孤立零点；即存在 $\delta>0$，
 \]
 在 $z_0$ 处补充定义 $f(z_0)=C_0$，即可使其在 $z_0$ 处解析。
 
+
+% 2026-10-19，第 4 张板书：本性奇点及零点分解式的补充。
+\paragraph{本性奇点（essential singularity）}
+若 $z_0$ 为 $f(z)$ 的孤立奇点，且 $f(z)$ 在
+$z_0$ 的去心邻域内的 Laurent 展开
+\[
+  f(z)=\cdots+\frac{C_{-n}}{(z-z_0)^n}
+        +\cdots+C_0+C_1(z-z_0)+\cdots
+\]
+含有\textbf{无穷多个非零的负幂项系数}，即存在无穷多个
+$n\in\mathbb N^+$ 使得 $C_{-n}\ne0$，则称 $z_0$
+为 $f(z)$ 的本性奇点。
+
+\paragraph{例}
+考虑
+\[
+  f(z)=e^{1/z},\qquad z_0=0.
+\]
+由于
+\[
+  e^{1/z}
+  =\sum_{n=0}^{+\infty}\frac{1}{n!\,z^n}
+  =\sum_{n=0}^{+\infty}\frac{z^{-n}}{n!},
+\]
+其 Laurent 级数有无穷多个非零的负幂项系数
+$C_{-n}=1/n!$，所以 $z=0$ 是本性奇点。
+
+此时 $\lim_{z\to0}f(z)$ 不存在。例如沿虚轴取
+$z=i y_n$，其中 $y_n\in\mathbb R\setminus\{0\}$
+且 $y_n\to0$，则
+\[
+  f(iy_n)=e^{1/(iy_n)}=e^{-i/y_n},
+  \qquad |f(iy_n)|=1.
+\]
+另一方面，沿正实轴 $x\to0^+$ 时
+$e^{1/x}\to+\infty$，因此在 $z=0$ 不存在极限
+（也不趋于无穷大）。
+
+\paragraph{补充：零点分解式中的可去奇点}
+回顾前述解析函数在零点 $z_0$ 附近的分解
+\[
+  f(z)=(z-z_0)^n\varphi(z).
+\]
+在 $z\ne z_0$ 时，可由 Taylor 展开得到
+\begin{align*}
+  \varphi(z)
+   &=\frac{f(z)}{(z-z_0)^n}\\
+   &=\frac{
+      \dfrac{f^{(n)}(z_0)}{n!}(z-z_0)^n+
+      \dfrac{f^{(n+1)}(z_0)}{(n+1)!}(z-z_0)^{n+1}
+      +\cdots}{(z-z_0)^n}\\
+   &=\frac{f^{(n)}(z_0)}{n!}
+     +\frac{f^{(n+1)}(z_0)}{(n+1)!}(z-z_0)
+     +O\bigl((z-z_0)^2\bigr).
+\end{align*}
+因此
+\[
+  \lim_{z\to z_0}\varphi(z)
+  =\frac{f^{(n)}(z_0)}{n!}\ne0,
+\]
+该极限存在且有限。把
+$\varphi(z_0)=f^{(n)}(z_0)/n!$ 补充定义在 $z_0$
+处，即可将 $\varphi$ 在 $z_0$ 的可去奇点补为解析点；
+其 Laurent 级数因此化为 Taylor 级数。
+% 注意：这里的可去奇点属于最初只在 z != z_0 定义的商函数
+% \varphi(z)=f(z)/(z-z_0)^n，而非已在 z_0 解析的 f。
+
 \end{document}
