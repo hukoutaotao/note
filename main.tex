@@ -1124,4 +1124,156 @@ $(1+\rho^2)^2-\rho^2=1+\rho^2+\rho^4$；
 % 第 13 张板书末尾的 n 次幂积分只给出题目；
 % 这里的参数求导法为根据课堂内容补全的解法。
 
+
+% 第 14、15 张板书：对参数求导求三角积分（含板书勘误）。
+\subsection*{考试重点续讲：对参数求导求三角积分}
+
+\paragraph{第 14 张：从已知积分对 $a$ 求偏导}
+设 $a,b\in\mathbb R$，$a>|b|$。沿用已求出的公式
+\[
+  I_{a,b}:=\int_0^{2\pi}\frac{d\theta}{a+b\cos\theta}
+    =\frac{2\pi}{\sqrt{a^2-b^2}}.
+\]
+由 $a>|b|$，分母在积分区间上一致地远离零，
+因此允许对参数 $a$ 在积分号内求导：
+\begin{align*}
+  \frac{\partial I_{a,b}}{\partial a}
+  &=\int_0^{2\pi}\frac{\partial}{\partial a}
+       \frac{1}{a+b\cos\theta}\,d\theta\\
+  &=-\int_0^{2\pi}
+       \frac{d\theta}{(a+b\cos\theta)^2}.
+\end{align*}
+而直接对已知闭式求导，
+\begin{align*}
+  \frac{\partial I_{a,b}}{\partial a}
+  &=2\pi\cdot\left(-\frac12\right)
+         (a^2-b^2)^{-3/2}\cdot2a\\
+  &=-\frac{2\pi a}{(a^2-b^2)^{3/2}}.
+\end{align*}
+两式比较，得到
+\[
+  \boxed{
+  \int_0^{2\pi}
+      \frac{d\theta}{(a+b\cos\theta)^2}
+    =\frac{2\pi a}{(a^2-b^2)^{3/2}}.}
+\]
+\textbf{勘误：}板书末尾的分母应是
+$(a^2-b^2)^{3/2}$，不是 $\sqrt[3]{a^2-b^2}$；
+且由于积分号下求导带负号，上式的积分结果为正。
+
+\paragraph{第 15 张：一般 $n$ 次幂积分的递推}
+记
+\[
+  I_{a,b}^{(n)}
+  :=\int_0^{2\pi}
+       \frac{d\theta}{(a+b\cos\theta)^n},
+  \qquad n\in\mathbb N^+.
+\]
+则
+\begin{align*}
+  \frac{\partial I_{a,b}^{(n)}}{\partial a}
+    &=-n\int_0^{2\pi}
+       \frac{d\theta}{(a+b\cos\theta)^{n+1}}\\
+    &=-n I_{a,b}^{(n+1)}.
+\end{align*}
+因此\textbf{正确的递推式}是
+\[
+  \boxed{
+  I_{a,b}^{(n+1)}
+    =-\frac1n\frac{\partial I_{a,b}^{(n)}}{\partial a},
+  }
+\]
+右侧\textbf{不能遗漏对 $a$ 的导数符号}。
+特别地，
+\begin{align*}
+  I_{a,b}^{(1)}
+    &=\frac{2\pi}{\sqrt{a^2-b^2}},\\
+  I_{a,b}^{(2)}
+    &=-\frac{\partial I_{a,b}^{(1)}}{\partial a}
+     =\frac{2\pi a}{(a^2-b^2)^{3/2}},\\
+  I_{a,b}^{(3)}
+    &=-\frac12\frac{\partial I_{a,b}^{(2)}}{\partial a}
+     =\frac{\pi(2a^2+b^2)}{(a^2-b^2)^{5/2}}.
+\end{align*}
+注意 $I^{(2)}$ 不是 $-I^{(1)}/2$：
+板书写成只把 $I^{(n)}$ 除以 $n$
+的表达式漏掉了偏导数，按字面理解是错误的。
+
+\paragraph{对 $b$ 求偏导：分子含 $\cos\theta$ 的平方分母积分}
+由
+\[
+  \frac{\partial I_{a,b}}{\partial b}
+   =-\int_0^{2\pi}
+     \frac{\cos\theta}{(a+b\cos\theta)^2}\,d\theta
+\]
+以及
+\[
+  \frac{\partial}{\partial b}
+     \frac{2\pi}{\sqrt{a^2-b^2}}
+   =\frac{2\pi b}{(a^2-b^2)^{3/2}},
+\]
+故
+\[
+  \boxed{
+  \int_0^{2\pi}
+     \frac{\cos\theta\,d\theta}
+          {(a+b\cos\theta)^2}
+  =-\frac{2\pi b}{(a^2-b^2)^{3/2}}.
+  }
+\]
+同样由余弦--正弦积分的平移关系，
+\[
+  \boxed{
+  \int_0^{2\pi}
+     \frac{\sin\theta\,d\theta}
+          {(a+b\sin\theta)^2}
+  =-\frac{2\pi b}{(a^2-b^2)^{3/2}}.
+  }
+\]
+\textbf{勘误：}对 $b$ 求导时，一定产生
+\emph{分母的平方}和\emph{整体负号}。板书中的
+$J_{a,b},K_{a,b}$ 左侧若读作分母一次幂，
+便不能与右侧所写的 $\partial I_{a,b}/\partial b$ 直接画等号。
+
+\paragraph{若分母确实只有一次幂，应该怎样计算？}
+为同时保留板书中分母一次幂的写法，设 $b\ne0$，
+将分子改写为
+\[
+  \cos\theta
+  =\frac{(a+b\cos\theta)-a}{b}.
+\]
+则
+\begin{align*}
+  \int_0^{2\pi}
+     \frac{\cos\theta\,d\theta}{a+b\cos\theta}
+  &=\frac1b
+      \left(2\pi-a I_{a,b}\right)\\
+  &=\boxed{
+      \frac{2\pi}{b}
+      \left(1-\frac{a}{\sqrt{a^2-b^2}}\right).
+     }
+\end{align*}
+同理
+\[
+  \int_0^{2\pi}
+     \frac{\sin\theta\,d\theta}{a+b\sin\theta}
+  =\frac{2\pi}{b}
+      \left(1-\frac{a}{\sqrt{a^2-b^2}}\right).
+\]
+当 $b=0$ 时，这两个一次幂分母的积分都为 $0$。
+
+\paragraph{板书右侧：平方三角函数的互换}
+通过平移 $\theta\mapsto\theta+\pi/2$，
+\[
+  \int_0^{2\pi}
+    \frac{d\theta}{A^2\cos^2\theta+B^2\sin^2\theta}
+  =\int_0^{2\pi}
+    \frac{d\theta}{A^2\sin^2\theta+B^2\cos^2\theta}.
+\]
+在 $AB>0$ 的课堂条件下，二者均为
+\[
+  \boxed{\frac{2\pi}{AB}};
+\]
+若只要求 $A,B\ne0$，则应写作 $2\pi/|AB|$。
+
 \end{document}
