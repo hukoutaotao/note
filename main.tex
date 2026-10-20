@@ -871,4 +871,104 @@ $\int_0^{2\pi}d\theta/a=2\pi/a$；
 复变法应说明极点在单位圆内外的位置；
 实变半角代换时不可漏掉跨越 $\theta=\pi$ 的第二段积分。
 
+
+% 第 12 张板书：考试重点例题的课堂完整留数法推导。
+\subsection*{考试重点续讲：老师实际板书的留数计算步骤}
+\noindent\textbf{【考试重点｜前一例的课堂板书解法】}
+下面依照老师本次板书的次序，详细写出根的选择和 Laurent
+系数 $C_{-1}$ 的计算（答案与前一例相同）。
+
+\paragraph{1.\ 单位圆代换}
+令 $z=e^{i\theta}$，则
+\[
+  \cos\theta=\frac{z+z^{-1}}2,\qquad
+  \sin\theta=\frac{z-z^{-1}}{2i},
+  \qquad dz=iz\,d\theta,\quad d\theta=\frac{dz}{iz}.
+\]
+$\theta$ 从 $0$ 到 $2\pi$ 时，$z$ 逆时针绕
+$|z|=1$ 一周。原题在 $a>|b|\ge0$ 下有
+\[
+  I_{a,b}=\int_0^{2\pi}\frac{d\theta}{a+b\cos\theta}.
+\]
+若 $b=0$，直接得 $I_{a,0}=2\pi/a$。
+下面设 $b\ne0$：
+\begin{align*}
+ I_{a,b}
+ &=\oint_{|z|=1}
+   \frac{1}{a+\frac b2(z+z^{-1})}\frac{dz}{iz}\\
+ &=\frac2{i}\oint_{|z|=1}\frac{dz}{bz^2+2az+b}\\
+ &=\frac{2}{bi}\oint_{|z|=1}
+    \frac{dz}{z^2+\frac{2a}{b}z+1}.
+\end{align*}
+
+\paragraph{2.\ 求两个极点并判断其位置}
+令 $g(z)=z^2+\frac{2a}{b}z+1$。
+因为 $a>|b|$，有
+$\Delta:=\sqrt{a^2-b^2}>0$。
+求 $g(z)=0$ 得
+\[
+  z_1=\frac{-a+\Delta}{b}
+      =-\frac{b}{a+\Delta},
+  \qquad
+  z_2=\frac{-a-\Delta}{b}.
+\]
+由韦达定理，
+\[
+  z_1z_2=1.
+\]
+又因为 $a+\Delta>|b|$，
+\[
+  |z_1|=\frac{|b|}{a+\Delta}<1,
+  \qquad
+  |z_2|=\frac{1}{|z_1|}>1.
+\]
+故\textbf{只有 $z_1$ 位于单位圆内部}。
+具体而言，$b>0$ 时 $-1<z_1<0$，
+$b<0$ 时 $0<z_1<1$；不能在未限定 $b$ 符号
+时直接断言两个根的正负。
+
+\paragraph{3.\ 计算单位圆内的一阶极点的留数}
+对有理函数 $1/g(z)$，因为
+\[
+  g'(z)=2z+\frac{2a}{b},
+  \qquad
+  g'(z_1)=2z_1+\frac{2a}{b}
+          =\frac{2\Delta}{b}\ne0,
+\]
+故 $z_1$ 是一阶极点，Laurent 系数满足
+\begin{align*}
+ C_{-1}
+ &=\operatorname{Res}_{z=z_1}\frac{1}{g(z)}
+   =\frac{1}{g'(z_1)}\\
+ &=\frac{1}{2z_1+2a/b}
+   =\frac{b}{2\sqrt{a^2-b^2}}.
+\end{align*}
+这正是老师板书上右侧使用的
+$C_{-1}=p(z_1)/g'(z_1)$ 公式（这里 $p=1$）。
+
+\paragraph{4.\ 用留数定理写出最终答案}
+\begin{align*}
+ I_{a,b}
+ &=\frac{2}{bi}\cdot 2\pi i\,C_{-1}\\
+ &=\frac{2}{bi}\cdot 2\pi i
+      \cdot\frac{b}{2\sqrt{a^2-b^2}}\\
+ &=\boxed{\frac{2\pi}{\sqrt{a^2-b^2}}}.
+\end{align*}
+对于 $b=0$，因 $a>0$，
+上述结果成为 $2\pi/a$，与直接积分一致。
+又由周期性及 $\cos\theta=\sin(\theta+\pi/2)$，
+\[
+ \boxed{
+ \int_0^{2\pi}\frac{d\theta}{a+b\sin\theta}
+ =\int_0^{2\pi}\frac{d\theta}{a+b\cos\theta}
+ =\frac{2\pi}{\sqrt{a^2-b^2}}
+ },\qquad a>|b|.
+\]
+
+\paragraph{考试时最应保留的三步}
+\textbf{单位圆代换 $\to$ 判定一个极点在圆内
+$\to$ 用 $C_{-1}=1/g'(z_1)$ 套留数定理。}
+特别注意：即便 $b<0$，只要 $a>|b|$，上述选择
+的 $z_1$ 仍然满足 $|z_1|<1$，最后答案不变。
+
 \end{document}
