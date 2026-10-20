@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1792479553.49654 "d:/Academy/大二上/Functions of Complex Variables and Equations of Mathematical Physics/note/main.tex" "main.pdf" "main" 1792479558.06091 0
+["pdflatex"] 1792479926.43369 "d:/Academy/大二上/Functions of Complex Variables and Equations of Mathematical Physics/note/main.tex" "main.pdf" "main" 1792479930.97238 0
   "c:/Windows/Fonts/msyh.ttc" 1736514291 19704352 1e10e74402e59d54499af795caf0b135 ""
   "c:/Windows/Fonts/simhei.ttf" 1771133408 9745792 5c7fd3058dea9b77be5049ff7efa9f34 ""
   "c:/Windows/Fonts/simkai.ttf" 1771133408 11779732 2eee64ad5f44858f339bcf248bda95d0 ""
   "c:/Windows/Fonts/simsun.ttc" 1771133409 18316748 0ba67eea91ba3af0ac4836d0e922d011 ""
-  "d:/Academy/大二上/Functions of Complex Variables and Equations of Mathematical Physics/note/main.tex" 1792479543 18048 7fcc976881947f07551493ef52380af5 ""
+  "d:/Academy/大二上/Functions of Complex Variables and Equations of Mathematical Physics/note/main.tex" 1792479807 20855 162d70e56e0daa5870cf7f73d30de2c8 ""
   "d:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1789051781 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "d:/texlive/2026/texmf-dist/fonts/sfd/ttf2pk/UGBK.sfd" 1789053073 182544 bcd31d5d273400b38612a969fcab55f9 ""
   "d:/texlive/2026/texmf-dist/fonts/sfd/ttf2pk/Unicode.sfd" 1789053073 103212 c249c63d38b8b55408aee52d643b0c18 ""
@@ -57,6 +57,7 @@
   "d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei65.tfm" 1789086911 1172 c34b1545992ab0d7393a03f889ceeb86 ""
   "d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei66.tfm" 1789086911 1172 023ac6647c726f082a8ecd4350d68793 ""
   "d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei67.tfm" 1789086911 1172 127372bbba8b4f4a65a26e565c0c6a2e ""
+  "d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei68.tfm" 1789086911 1172 a6e39128d14a2d8e22ed8239e864feff ""
   "d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei6b.tfm" 1789086911 1172 865a135040ed6ad7a3ce493fd0108ece ""
   "d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei6c.tfm" 1789086911 1172 7dd7a6f05321dd25f399ebba47f53887 ""
   "d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei6d.tfm" 1789086911 1172 e5be6419407f0c8504254055afe6a633 ""
@@ -285,9 +286,9 @@
   "d:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1789087184 5655996 1397ab79e8fddf31634fdd3693a98911 ""
   "d:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1789087581 3658242 dd35999fe0b00c6750656d59b70c6664 ""
   "d:/texlive/2026/texmf.cnf" 1789053305 840 34379e741e845188dd0c92f268f794c7 ""
-  "main.aux" 1792479556 2758 e208206ac50be71c43308ff8b7d4d958 "pdflatex"
-  "main.out" 1792479556 115 219f6833ef5b3c398125c90dec90837e "pdflatex"
-  "main.tex" 1792479543 18048 7fcc976881947f07551493ef52380af5 ""
+  "main.aux" 1792479929 3054 a8b7c033bd113210a4342f154add6577 "pdflatex"
+  "main.out" 1792479929 115 219f6833ef5b3c398125c90dec90837e "pdflatex"
+  "main.tex" 1792479807 20855 162d70e56e0daa5870cf7f73d30de2c8 ""
   (generated)
   "main.aux"
   "main.log"

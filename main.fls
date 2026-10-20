@@ -440,9 +440,14 @@ INPUT d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei98.tfm
 INPUT d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong94.tfm
 INPUT d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong81.tfm
 INPUT d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei74.tfm
+INPUT d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei68.tfm
+INPUT d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei54.tfm
+INPUT d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei57.tfm
+INPUT d:/texlive/2026/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei50.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
+INPUT c:/Windows/Fonts/simhei.ttf
 INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simhei.ttf
