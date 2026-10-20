@@ -1276,4 +1276,87 @@ $J_{a,b},K_{a,b}$ 左侧若读作分母一次幂，
 \]
 若只要求 $A,B\ne0$，则应写作 $2\pi/|AB|$。
 
+
+% 第 16 张板书：含正弦函数的广义积分。
+\subsection*{上半圆围道求含正弦函数的广义积分}
+\paragraph{题目} 已知 $b>a>0$，$k\in\mathbb R$，求
+\[
+ I_{a,b,k}=\int_0^{+\infty}
+ \frac{x^3\sin(kx)}{(x^2+a^2)(x^2+b^2)}\,dx.
+\]
+按老师板书先考虑 $k>0$。该积分在 $k\ne0$ 时条件收敛。
+
+\paragraph{第一步：化为整个实轴上的复积分}
+设
+\[
+ F(z)=\frac{z^3e^{ikz}}{(z^2+a^2)(z^2+b^2)}
+     =\frac{z^3e^{ikz}}
+     {z^4+(a^2+b^2)z^2+a^2b^2}.
+\]
+由于 $x^3\cos(kx)$ 为奇函数，而 $x^3\sin(kx)$
+为偶函数，
+\[
+ \int_{-\infty}^{+\infty}F(x)\,dx
+ =2i\int_0^{+\infty}
+    \frac{x^3\sin(kx)}{(x^2+a^2)(x^2+b^2)}\,dx
+ =2iI_{a,b,k}.
+\]
+这里两侧积分按对称截断极限理解。
+
+\paragraph{第二步：取上半圆围道}
+取 $R>b$，由 $[-R,R]$ 和上半圆弧
+$C_R:z=Re^{i\theta}$（$0\le\theta\le\pi$）
+构成正向围道 $\Gamma_R$。当 $k>0$ 时，
+\[
+ |e^{ikz}|=e^{-kR\sin\theta}
+ \quad(z\in C_R).
+\]
+由 Jordan 引理，圆弧积分
+$\int_{C_R}F(z)\,dz\to0$（$R\to\infty$）。
+
+\paragraph{第三步：计算两个一阶极点的留数}
+上半平面内的极点为 $z=ai$ 和 $z=bi$。
+令
+\[
+ g(z)=z^4+(a^2+b^2)z^2+a^2b^2,\qquad
+ g'(z)=4z^3+2(a^2+b^2)z.
+\]
+利用 $C_{-1}=p(z_0)/g'(z_0)$：
+\begin{align*}
+ \operatorname{Res}(F,ai)
+ &=\frac{(ai)^3e^{ik(ai)}}{g'(ai)}
+ =\frac{-ia^3e^{-ka}}{2ia(b^2-a^2)}
+ =-\frac{a^2e^{-ka}}{2(b^2-a^2)},\\
+ \operatorname{Res}(F,bi)
+ &=\frac{(bi)^3e^{ik(bi)}}{g'(bi)}
+ =\frac{-ib^3e^{-kb}}{2ib(a^2-b^2)}
+ =\frac{b^2e^{-kb}}{2(b^2-a^2)}.
+\end{align*}
+
+\paragraph{第四步：留数定理与最终答案}
+由上半圆弧积分趋于零，
+\begin{align*}
+ 2iI_{a,b,k}
+ &=2\pi i\bigl[\operatorname{Res}(F,ai)
+                   +\operatorname{Res}(F,bi)\bigr]\\
+ &=\frac{\pi i}{b^2-a^2}
+    \left(b^2e^{-bk}-a^2e^{-ak}\right).
+\end{align*}
+从而
+\[
+ \boxed{I_{a,b,k}
+ =\frac{\pi}{2(b^2-a^2)}
+   \left(b^2e^{-bk}-a^2e^{-ak}\right),\qquad k>0.}
+\]
+若 $k=0$，原被积函数恒为零，故 $I_{a,b,0}=0$。
+若 $k<0$，利用 $\sin(kx)=-\sin(|k|x)$，
+\[
+ \boxed{I_{a,b,k}
+ =-\frac{\pi}{2(b^2-a^2)}
+   \left(b^2e^{-b|k|}-a^2e^{-a|k|}\right),\qquad k<0.}
+\]
+\textbf{补充说明：}当 $k\to0^+$ 时上述积分的极限是
+$\pi/2$，但在 $k=0$ 处原积分是 $0$；
+这是条件收敛广义积分不能随意交换极限的例子。
+
 \end{document}
