@@ -116,4 +116,70 @@ $h(z)$ 的孤立零点；即存在 $\delta>0$，
 \hfill$\square$
 
 
+% 2026-10-19，第 3 张板书：奇点的分类。
+\subsection*{奇点的分类（Singularities）}
+
+奇点分为\textbf{孤立奇点}与\textbf{非孤立奇点}。
+孤立奇点进一步分为：
+\[
+  \left\{
+  \begin{array}{l}
+    \text{极点（pole）},\\
+    \text{可去奇点（removable singularity）},\\
+    \text{本性奇点（essential singularity）}.
+  \end{array}
+  \right.
+\]
+
+\paragraph{非孤立奇点}
+例如
+\[
+  f(z)=\frac{1}{\sin\frac{1}{z}},\qquad z\ne 0.
+\]
+取
+\[
+  z_k=\frac{1}{k\pi},\qquad k\in\mathbb Z\setminus\{0\},
+\]
+则 $z_k$ 是奇点，且 $z_k\to0$（当 $|k|\to\infty$）。
+所以 $z_0=0$ 是一个\textbf{非孤立奇点}。
+
+另一个板书例子是
+\[
+  f(z)=|z|^2=z\overline z.
+\]
+它在 $z_0=0$ 处复可导，且 $f'(0)=0$；
+但在任何包含 $0$ 的邻域内均不解析。
+% 注：在一点复可导并不意味着该点解析。
+
+\paragraph{极点（pole）}
+设 $z_0$ 为 $f(z)$ 的孤立奇点。
+若 $f(z)$ 在 $z_0$ 附近的 Laurent 级数为
+\begin{align*}
+  f(z)
+  &=\frac{C_{-n}}{(z-z_0)^n}
+   +\frac{C_{-(n-1)}}{(z-z_0)^{n-1}}
+   +\cdots\\
+  &\quad +C_0+C_1(z-z_0)+\cdots+C_n(z-z_0)^n+\cdots,
+\end{align*}
+其中 $C_{-n}\ne0$，$n\in\mathbb N^+$，
+则称 $z_0$ 为 $f(z)$ 的\textbf{$n$ 阶极点}。
+此时
+\[
+  \lim_{z\to z_0}f(z)=\infty
+  \qquad\bigl(\text{即 }|f(z)|\to\infty\bigr).
+\]
+
+\paragraph{可去奇点（removable singularity）}
+设 $z_0$ 为 $f(z)$ 的孤立奇点。
+若其 Laurent 级数的所有负幂项系数为零，
+即 $C_{-n}=0$（$\forall n\ge1$），则
+\[
+  f(z)=C_0+C_1(z-z_0)+C_2(z-z_0)^2+\cdots,
+\]
+即在去心邻域中表现为 Taylor 级数，并且
+\[
+  \lim_{z\to z_0}f(z)=C_0.
+\]
+在 $z_0$ 处补充定义 $f(z_0)=C_0$，即可使其在 $z_0$ 处解析。
+
 \end{document}
