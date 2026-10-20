@@ -1,0 +1,59 @@
+% 使用 XeLaTeX 编译；后续按板书照片顺序追加内容。
+\documentclass[UTF8,a4paper,12pt]{ctexart}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\newtheorem{proposition}{命题}
+
+\title{复变函数课堂笔记}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+% 2026-10-19，第 1 张板书。
+\setcounter{section}{4}
+\section{留数（Residues）}
+
+\begin{proposition}[解析函数零点的孤立性]
+若 $f(z)$ 在 $z_0$ 点解析，$f(z_0)=0$，且 $f(z)\not\equiv 0$，
+则存在 $\delta>0$，使得在 $|z-z_0|<\delta$ 内有
+\[
+  f(z)=(z-z_0)^n\varphi(z),
+\]
+这里 $n\in\mathbb{N}^{+}$，$\varphi(z_0)\ne 0$，且
+$\varphi(z)$ 在 $|z-z_0|<\delta$ 内处处可导（解析）。
+\end{proposition}
+
+\paragraph{证明}
+因 $f(z)$ 在 $z_0$ 解析，故存在 $\delta>0$，当 $|z-z_0|<\delta$ 时，有
+\begin{align*}
+  f(z)
+  &=\sum_{k=0}^{+\infty}\frac{f^{(k)}(z_0)}{k!}(z-z_0)^k \\
+  &=f(z_0)+\frac{f'(z_0)}{1!}(z-z_0)+\cdots
+    +\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n+\cdots.
+\end{align*}
+令
+\[
+  n=\min\bigl\{k: f^{(k)}(z_0)\ne 0\bigr\},
+\]
+则
+\[
+  f(z_0)=f'(z_0)=\cdots=f^{(n-1)}(z_0)=0.
+\]
+于是
+\begin{align*}
+  f(z)
+  &=\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n
+    +\frac{f^{(n+1)}(z_0)}{(n+1)!}(z-z_0)^{n+1}+\cdots \\
+  &=(z-z_0)^n\underbrace{\left[
+      \frac{f^{(n)}(z_0)}{n!}
+      +\frac{f^{(n+1)}(z_0)}{(n+1)!}(z-z_0)+\cdots
+    \right]}_{\displaystyle\varphi(z)} \\
+  &=(z-z_0)^n\varphi(z).
+\end{align*}
+% 第 1 张板书到此；后续证明按新照片继续追加。
+
+\end{document}
