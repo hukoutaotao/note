@@ -29,3 +29,10 @@
 新建 `lectures/07.tex`（下一课按序编号），在 `main.tex` 按序追加 `\\clearpage` 和 `\input{lectures/07.tex}`，将 `current.tex` 改为指向它，同时更新 README 索引。课次编号不等于章节编号，不要擅自从第五章跳到第六章。
 
 用户交给 AI 的主要任务是准确识别、持续维护并同步仓库；不是让用户手动编辑大量 LaTeX。
+
+## LaTeX 根文件及编译（重要）
+- `current.tex`（当前课）和 `main.tex`（全部课次）是唯二可以独立编译的入口，各自拥有 `\documentclass`。
+- `preamble.tex` 只存放共享宏包和标题等设置，不应再出现 `\documentclass`；LaTeX Workshop 曾因这里放置 `\documentclass` 而错误选择编译入口。
+- `preamble.tex` 应以 `% !TEX root = current.tex` 开头；`lectures/05.tex` 指向 `../main.tex`，当前课 `lectures/06.tex` 指向 `../current.tex`，新增课次也须维护根文件注释。
+- `.vscode/settings.json` 需保持 `latex-workshop.latex.build.enableMagicComments = true`。
+- 用 `latexmk -xelatex current.tex` 或 `latexmk -xelatex main.tex` 构建；不要直接编译子文件或 `preamble.tex`。
