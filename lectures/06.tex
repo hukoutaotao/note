@@ -278,4 +278,88 @@ $\dfrac{1}{(1+z^2)^n}$ 在 $z=i$ 处有 $n$ 阶极点，
   &=-\frac{i}{2^{2n-1}}\binom{2(n-1)}{n-1}.
 \end{align*}
 
-% 本张板书止于留数的计算；后续板书再代回 J_{1,n}。
+% 本张板书止于留数的计算；第 8 张板书继续代回 J_{1,n}。
+
+
+% 第 8 张板书：代回留数、给出积分结果及 n 趋于无穷的讨论。
+由上张板书计算所得
+\[
+  \operatorname{Res}\left(\frac{1}{(1+z^2)^n},i\right)
+  =-\frac{i}{2^{2n-1}}\binom{2(n-1)}{n-1},
+\]
+故
+\begin{align*}
+  J_{1,n}
+  &=\pi i\,\operatorname{Res}
+    \left(\frac{1}{(1+z^2)^n},i\right)\\
+  &=\frac{\pi i(-i)}{2^{2n-1}}\binom{2(n-1)}{n-1}\\
+  &=\frac{\pi}{2^{2n-1}}\binom{2(n-1)}{n-1}\\
+  &=\frac{\pi[2(n-1)]!}{2^{2n-1}[(n-1)!]^2}.
+\end{align*}
+所以
+\[
+  \boxed{
+    J_{r,n}=\frac{1}{r^{2n-1}}J_{1,n}
+    =\frac{\pi[2(n-1)]!}{(2r)^{2n-1}[(n-1)!]^2}
+  },\qquad r>0,\quad n\in\mathbb N^+.
+\]
+
+\paragraph{关于 $n\to+\infty$ 的讨论}
+由上式可得
+\[
+  \frac{J_{r,n+1}}{J_{r,n}}
+  =\frac{1}{r^2}\left(1-\frac{1}{2n}\right)<1,
+  \qquad r\ge1.
+\]
+
+先看 $r=1$。任取 $\varepsilon>0$，将积分拆为
+\[
+  J_{1,n}
+  =\int_0^\varepsilon\frac{dx}{(1+x^2)^n}
+   +\int_\varepsilon^{+\infty}\frac{dx}{(1+x^2)^n}.
+\]
+其中
+\[
+  0\le \int_0^\varepsilon\frac{dx}{(1+x^2)^n}
+  \le\int_0^\varepsilon dx=\varepsilon,
+\]
+而
+\[
+  0\le\int_\varepsilon^{+\infty}\frac{dx}{(1+x^2)^n}
+  \le\frac{1}{(1+\varepsilon^2)^{n-1}}
+     \int_\varepsilon^{+\infty}\frac{dx}{1+x^2}
+  \xrightarrow[n\to+\infty]{}0.
+\]
+因此
+\[
+  0\le\limsup_{n\to+\infty}J_{1,n}\le\varepsilon.
+\]
+令 $\varepsilon\to0^+$，得到
+\[
+  \boxed{\lim_{n\to+\infty}J_{1,n}=0}.
+\]
+
+另一方面，对 $r\ge1$，由上述比值，
+\begin{align*}
+  \frac{J_{r,n+1}}{J_{r,n}}\,
+  \frac{J_{r,n}}{J_{r,n-1}}\cdots
+  \frac{J_{r,2}}{J_{r,1}}
+  &=\frac{J_{r,n+1}}{J_{r,1}}\\
+  &=\prod_{k=1}^{n}\frac{1}{r^2}
+       \left(1-\frac{1}{2k}\right)\\
+  &\le \exp\left(-\frac12\sum_{k=1}^{n}\frac1k\right)
+    \longrightarrow0.
+\end{align*}
+从而
+\[
+  \boxed{J_{r,n+1}\longrightarrow0\quad(n\to+\infty,\ r\ge1).}
+\]
+
+\paragraph{板书勘误（第 8 张）}
+比值 $\dfrac{J_{r,n+1}}{J_{r,n}}$ 中，
+板书的 $r$ 次幂写成 $r^{2n}$，应改为 $r^2$：
+由 $J_{r,n}\propto r^{-(2n-1)}$ 可知相邻两项相除只相差 $r^{-2}$。
+此外，分段估计极限时应先固定 $\varepsilon>0$，
+再令 $n\to+\infty$，最后令 $\varepsilon\to0^+$；
+上文已将这一步写为严格的不等式。
+% 第 8 张板书结束；后续第 6 课照片继续从这里追加。
