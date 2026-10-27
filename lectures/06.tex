@@ -471,4 +471,91 @@ $\dfrac{1}{(1+z^2)^n}$ 在 $z=i$ 处有 $n$ 阶极点，
   % 老师右侧关于扩充复平面/无穷远点的板书较模糊，待后续照片核对。
 \end{enumerate}
 
-% 第 10 张板书到此。后续内容继续在本课文件末尾追加。
+% 第 10 张板书结束；第 11 张继续讲解 Möbius 变换。
+
+
+% 第 11 张板书：Möbius 变换的导数与退化情形。
+\subsection*{Möbius 变换的矩阵表示（续）}
+设
+\[
+  w=\frac{az+b}{cz+d},\qquad
+  A=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+  \qquad a,b,c,d\in\mathbb C.
+\]
+在 $cz+d\ne0$ 处，
+\[
+  \frac{dw}{dz}=\frac{ad-bc}{(cz+d)^2}.
+\]
+若 $\det A=ad-bc\ne0$，则 $dw/dz\ne0$，因此在其定义域内保角。
+
+若 $ad-bc=0$，则在定义域内 $w$ 为常数。
+当 $c,d\ne0$ 时，由板书的两种写法，
+\[
+  w\equiv w(0)=\frac bd,\qquad
+  w=\frac{a+b/z}{c+d/z}\xrightarrow[z\to\infty]{}\frac ac,
+  \qquad\therefore\quad\frac ac=\frac bd.
+\]
+
+% 第 12 张板书：矩阵的比例等价、归一化及逆变换。
+\paragraph{矩阵归一化}
+对任意 $\lambda\ne0$，
+\[
+  \frac{az+b}{cz+d}
+  =\frac{\lambda az+\lambda b}{\lambda cz+\lambda d}.
+\]
+故 $A$ 与 $\lambda A$ 表示同一分式线性变换。可取
+\[
+  \det(\lambda A)=\lambda^2\det A=1
+  \quad\Longrightarrow\quad
+  \lambda^2=\frac1{ad-bc},\qquad
+  \lambda=\pm\frac1{\sqrt{ad-bc}}.
+\]
+记
+\[
+  A'=\lambda A
+  =\begin{pmatrix}a'&b'\\c'&d'\end{pmatrix},
+\]
+其中
+\[
+  a'=\frac{\pm a}{\sqrt{ad-bc}},\quad
+  b'=\frac{\pm b}{\sqrt{ad-bc}},\quad
+  c'=\frac{\pm c}{\sqrt{ad-bc}},\quad
+  d'=\frac{\pm d}{\sqrt{ad-bc}}.
+\]
+于是
+\[
+  \det A'=a'd'-b'c'=\frac{ad-bc}{ad-bc}=1,
+\]
+即归一化得到 $\mathrm{SL}(2,\mathbb C)$ 中的矩阵。
+
+\paragraph{逆变换}
+由
+\begin{align*}
+  w=\frac{az+b}{cz+d}
+  &\Longrightarrow(cz+d)w=az+b\\
+  &\Longrightarrow(cw-a)z=b-dw\\
+  &\Longrightarrow
+  z=\frac{-dw+b}{cw-a}.
+\end{align*}
+因此逆 Möbius 变换可用矩阵
+\[
+  B=\begin{pmatrix}-d&b\\c&-a\end{pmatrix}
+\]
+表示，且 $\det B=ad-bc=\det A\ne0$。
+通常意义下的矩阵逆则为
+\[
+  A^{-1}=\frac1{ad-bc}
+  \begin{pmatrix}d&-b\\-c&a\end{pmatrix}
+  =-\frac1{ad-bc}B.
+\]
+
+\paragraph{板书勘误（第 11--12 张）}
+\begin{enumerate}
+\item $\dfrac{dw}{dz}\ne0$ 只在 $cz+d\ne0$ 的定义域内成立；
+若 $c\ne0$，原分式在 $z=-d/c$ 无定义。
+\item 板书圈出的 $B$ 是\textbf{逆变换的表示矩阵}，
+不能直接视作一般意义的 $A^{-1}$。
+两者只差非零数倍，因而表示同一逆 Möbius 变换。
+\end{enumerate}
+
+% 第 12 张板书结束，后续从这里继续追加。
