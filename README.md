@@ -7,13 +7,13 @@
 | 课次 | 日期 | 内容概览 | 源码 | PDF |
 | --- | --- | --- | --- | --- |
 | 第 5 课 | 2026-10-19 | 解析函数零点与唯一性、奇点分类、Laurent 展开与留数、三角积分及含正弦的广义积分；包含课堂答疑与重点例题 | [lectures/05.tex](lectures/05.tex) | [原仓库归档 PDF](lectures/05.pdf) |
-| **第 6 课（当前）** | 待填写 | 新课笔记，待录入板书 | [lectures/06.tex](lectures/06.tex) | 编译 \`current.tex\` |
+| **第 6 课（当前）** | 待填写 | 新课笔记，待录入板书 | [lectures/06.tex](lectures/06.tex) | 编译 `current.tex` |
 
 > 第 5 课 PDF 是迁移前仓库已有的文件，**不是本次重新编译的产物**；如需最新内容，请按下文编译 LaTeX 源码。
 
 ## 仓库结构
 
-\`\`\`text
+```text
 note/
 ├── README.md           # 课程索引和使用说明
 ├── AGENTS.md           # 供 AI 识别板书/维护笔记时遵循的规则
@@ -25,20 +25,20 @@ note/
     ├── 05.tex          # 第 5 课正文（由原 main.tex 完整迁移）
     ├── 05.pdf          # 原仓库的 PDF 归档
     └── 06.tex          # 第 6 课正文（后续从这里追加）
-\`\`\`
+```
 
 ## 如何阅读和编译
 
-- **直接查看**：在 GitHub 打开上方的课程索引中的 \`.tex\` 文件；第 5 课也保留了历史 PDF。
-- **生成全部笔记**：在仓库根目录运行 \`latexmk -xelatex main.tex\`，得到 \`main.pdf\`。
-- **只生成当前课**：运行 \`latexmk -xelatex current.tex\`，得到 \`current.pdf\`。
-- 如果没有 \`latexmk\`，也可以运行 \`xelatex main.tex\` 或 \`xelatex current.tex\`（涉及引用时通常需编译两次）。
+- **直接查看**：在 GitHub 打开上方的课程索引中的 `.tex` 文件；第 5 课也保留了历史 PDF。
+- **生成全部笔记**：在仓库根目录运行 `latexmk -xelatex main.tex`，得到 `main.pdf`。
+- **只生成当前课**：运行 `latexmk -xelatex current.tex`，得到 `current.pdf`。
+- 如果没有 `latexmk`，也可以运行 `xelatex main.tex` 或 `xelatex current.tex`（涉及引用时通常需编译两次）。
 
 编译需要 XeLaTeX、CTeX 及原稿使用的常见数学宏包。运行命令时应位于**仓库根目录**，以确保相对路径正确。
 
 ## 如何继续记录第 6 课
 
-1. 上传本课板书照片，指出其属于「第 6 课」及照片顺序；直接在 \`lectures/06.tex\` 追加 LaTeX 正文。
+1. 上传本课板书照片，指出其属于「第 6 课」及照片顺序；直接在 `lectures/06.tex` 追加 LaTeX 正文。
 2. 保留第 5 课原文，不因为开启新课程而清空或覆盖旧笔记。
 3. 按板书顺序记录定义、定理、证明与例题；重复照片的重叠部分只保留一次。
 4. 原板书字迹不清、公式存在多种解释时，显式标注「待确认」，不要凭空补造。
@@ -49,13 +49,13 @@ note/
 
 以「第 7 课」为例：
 
-1. 新建 \`lectures/07.tex\`，写入 \`\\section*{第 7 课}\`，并继续追加本课正文。
-2. 在 \`main.tex\` 最后一个 \`\\input\` 后增加 \`\\clearpage\` 和 \`\\input{lectures/07.tex}\`，保留旧课次。
-3. 把 \`current.tex\` 的 \`\\input{lectures/06.tex}\` 替换为 \`\\input{lectures/07.tex}\`，使其只显示第 7 课。
+1. 新建 `lectures/07.tex`，写入 `\section*{第 7 课}`，并继续追加本课正文。
+2. 在 `main.tex` 最后一个 `\input` 后增加 `\\clearpage` 和 `\input{lectures/07.tex}`，保留旧课次。
+3. 把 `current.tex` 的 `\input{lectures/06.tex}` 替换为 `\input{lectures/07.tex}`，使其只显示第 7 课。
 4. 更新本 README 的课次索引和「当前」标签；有日期或主题时再填写，未知信息不要推测。
-5. 编译检查。不要提交 \`.aux\`、\`.log\`、\`.synctex.gz\` 等中间产物；普通新生成的 PDF 默认也不纳入 Git 跟踪。
+5. 编译检查。不要提交 `.aux`、`.log`、`.synctex.gz` 等中间产物；普通新生成的 PDF 默认也不纳入 Git 跟踪。
 
-**文件约定**：\`lectures/NN.tex\` 只写正文，不能再写导言区、\`\\begin{document}\` 或 \`\\end{document}\`；共用排版命令在 \`preamble.tex\` 中统一维护。
+**文件约定**：`lectures/NN.tex` 只写正文，不能再写导言区、`\begin{document}` 或 `\end{document}`；共用排版命令在 `preamble.tex` 中统一维护。
 
 ## 笔记整理原则
 
