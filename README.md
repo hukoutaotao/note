@@ -36,6 +36,12 @@ note/
 
 编译需要 XeLaTeX、CTeX 及原稿使用的常见数学宏包。运行命令时应位于**仓库根目录**，以确保相对路径正确。
 
+## VS Code 编译根文件
+
+本仓库只将 `current.tex`（仅第 6 课）和 `main.tex`（全部课次）作为主文件，二者均自行声明 `\documentclass`；`preamble.tex` 仅保存共享宏包、定理环境和标题，不可直接编译。
+
+为避免 LaTeX Workshop 错认根文件，在 `preamble.tex` 和各课次源码顶部添加了 `% !TEX root = ...`。本仓库通过 `.vscode/settings.json` 启用对这些注释的识别。若原先误编译过 `preamble.tex`，请先执行 `git pull`、用 VS Code 打开整个 `note` 文件夹，然后重新运行“Build LaTeX project”。终端始终可以直接运行 `latexmk -xelatex current.tex`。
+
 ## 如何继续记录第 6 课
 
 1. 上传本课板书照片，指出其属于「第 6 课」及照片顺序；直接在 `lectures/06.tex` 追加 LaTeX 正文。
