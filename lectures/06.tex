@@ -362,4 +362,112 @@ $\dfrac{1}{(1+z^2)^n}$ 在 $z=i$ 处有 $n$ 阶极点，
 此外，分段估计极限时应先固定 $\varepsilon>0$，
 再令 $n\to+\infty$，最后令 $\varepsilon\to0^+$；
 上文已将这一步写为严格的不等式。
-% 第 8 张板书结束；后续第 6 课照片继续从这里追加。
+% 第 8 张板书结束；第 9 张进入共形映射。
+
+
+% 第 9 张板书：第六章开篇——解析映射的保角性。
+\setcounter{section}{5}
+\section{共形映射（Analytic Mappings）}
+\subsection*{保角映射（Angle-preserving Mappings）}
+
+设 $w=f(z)$ 在 $z_0$ 的邻域内解析，且 $f'(z_0)\ne0$。
+复数的极坐标表示为
+\[
+  f(z)\ne0\quad\Longrightarrow\quad
+  f(z)=|f(z)|e^{i\varphi}.
+\]
+下面考察 $f$ 对相交曲线夹角的影响。
+
+设平面上的两条光滑曲线 $C_1,C_2$ 在 $z_0$ 相交，
+分别参数化为
+\[
+  z_1(t)=x_1(t)+iy_1(t),\qquad
+  z_2(t)=x_2(t)+iy_2(t),
+  \qquad z_1(t_0)=z_2(t_0)=z_0,
+\]
+并且
+\[
+  z_1'(t_0)=x_1'(t_0)+iy_1'(t_0)\ne0,\qquad
+  z_2'(t_0)=x_2'(t_0)+iy_2'(t_0)\ne0.
+\]
+记两条曲线在 $z_0$ 的有向夹角为 $\theta$。
+若写成
+\[
+  z_1'(t_0)=|z_1'(t_0)|e^{i\theta_1},\qquad
+  z_2'(t_0)=|z_2'(t_0)|e^{i\theta_2},
+\]
+则
+\[
+  \theta=\theta_2-\theta_1
+  =\arg z_2'(t_0)-\arg z_1'(t_0)
+  =\arg\frac{z_2'(t_0)}{z_1'(t_0)}
+  \pmod{2\pi}.
+\]
+
+在映射 $w=f(z)$ 下，两条曲线的像分别记为
+\[
+  w_1(t)=f(z_1(t)),\qquad w_2(t)=f(z_2(t)).
+\]
+由复合函数求导法则，像曲线在公共点 $f(z_0)$ 处的切向量为
+\[
+  w_1'(t_0)=f'(z_0)z_1'(t_0),\qquad
+  w_2'(t_0)=f'(z_0)z_2'(t_0).
+\]
+由于 $f'(z_0)\ne0$，
+\[
+  \frac{w_2'(t_0)}{w_1'(t_0)}
+  =\frac{f'(z_0)z_2'(t_0)}{f'(z_0)z_1'(t_0)}
+  =\frac{z_2'(t_0)}{z_1'(t_0)}.
+\]
+故像曲线的有向夹角 $\varphi$ 满足
+\[
+  \varphi
+  =\arg w_2'(t_0)-\arg w_1'(t_0)
+  =\arg z_2'(t_0)-\arg z_1'(t_0)
+  =\theta\pmod{2\pi}.
+\]
+因此 $f$ 在 $f'(z_0)\ne0$ 的点处保角。
+
+% 第 10 张板书：保角结论的续写与五个例子。
+\subsection*{例子}
+\begin{enumerate}
+  \item \textbf{多项式映射}
+  \[
+    f(z)=P_n(z),\qquad f'(z)=P_n'(z).
+  \]
+  其导数仍为多项式；在 $P_n'(z)\ne0$ 的点处保角。
+
+  \item \textbf{正弦映射}
+  \[
+    f(z)=\sin z,\qquad f'(z)=\cos z.
+  \]
+  在 $\cos z\ne0$ 的点处保角；当 $\cos z=0$ 时，
+  上述保角判据不适用。
+
+  \item \textbf{常值映射}
+  \[
+    f(z)=C,\qquad f'(z)=0.
+  \]
+  常值映射不保角。
+
+  \item \textbf{指数映射}
+  \[
+    f(z)=e^z,\qquad f'(z)=e^z\ne0.
+  \]
+  因此在所有有限复数点处保角。
+
+  \item \textbf{分式线性变换（Möbius Mapping）}
+  \[
+    f(z)=\frac{az+b}{cz+d},\qquad
+    a,b,c,d\in\mathbb C,\qquad ad-bc\ne0,
+  \]
+  记
+  \[
+    A=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+    \qquad \det A=ad-bc\ne0.
+  \]
+  在复平面中上述分式的定义要求 $cz+d\ne0$。
+  % 老师右侧关于扩充复平面/无穷远点的板书较模糊，待后续照片核对。
+\end{enumerate}
+
+% 第 10 张板书到此。后续内容继续在本课文件末尾追加。
