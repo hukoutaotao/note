@@ -1,0 +1,27 @@
+# XeLaTeX / latexmk 生成的中间文件
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+*.nav
+*.snm
+*.vrb
+*.pdf
+
+# 已归档的旧版第 5 课 PDF（有意纳入版本控制）
+!lectures/05.pdf
+
+# 编辑器与操作系统
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
