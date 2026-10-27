@@ -810,4 +810,104 @@ $c=0$ 的 Möbius 变换还固定无穷远点；
   上文改为列向量左乘该矩阵。
 \end{enumerate}
 
-% 第 16 张板书结束；后续第 6 课笔记继续追加。
+% 第 16 张板书结束；第 17 张继续讨论倒数映射与圆。
+
+
+% 第 17 张板书：倒数变换下圆、直线方程的变化。
+\paragraph{倒数变换与圆、直线}
+圆的一般方程可写为
+\[
+  x^2+y^2+Ax+By+C=0,
+\]
+亦即
+\[
+  z\overline z+\overline\alpha z+\alpha\overline z+\beta=0,
+  \qquad
+  \alpha=\frac{A+iB}{2},\quad \beta=C\in\mathbb R.
+\]
+令
+\[
+  w=\frac1z,\qquad z=\frac1w,
+\]
+则
+\begin{align*}
+  &\frac{1}{w\overline w}
+   +\frac{\overline\alpha}{w}
+   +\frac{\alpha}{\overline w}+\beta=0\\
+  \iff{}&
+  \beta w\overline w+\alpha w+\overline\alpha\,\overline w+1=0.
+\end{align*}
+分两种情况：
+\[
+  \begin{cases}
+    \beta=0:\quad
+      \alpha w+\overline\alpha\,\overline w+1=0,
+      &\text{直线},\\[2pt]
+    \beta\ne0:\quad
+      w\overline w+\dfrac{\alpha}{\beta}w
+      +\dfrac{\overline\alpha}{\beta}\overline w
+      +\dfrac1{\beta}=0,
+      &\text{圆}.
+  \end{cases}
+\]
+这里的圆均指非退化圆。因而倒数变换将圆映为圆或直线；
+其中过原点的圆（$\beta=0$）映为直线。
+
+% 第 18 张板书：基本变换与一般 Möbius 变换的分解。
+\paragraph{结论：分式线性映射保持广义圆}
+广义圆指圆与直线。考虑三种基本变换：
+\[
+  \text{① 平移：}\quad w=z+\alpha;\qquad
+  \text{② 伸缩旋转：}\quad w=\alpha z\ (\alpha\ne0);\qquad
+  \text{③ 倒数：}\quad w=\frac1z.
+\]
+这些变换均保持广义圆的类型（圆或直线的集合）。
+
+对于一般 Möbius 变换
+\[
+  w=\frac{az+b}{cz+d},\qquad ad-bc\ne0,
+\]
+若 $c\ne0$，按板书方法整理：
+\begin{align*}
+  w
+  &=\frac{a\left(z+\dfrac dc\right)+
+             \left(b-\dfrac{ad}{c}\right)}
+           {c\left(z+\dfrac dc\right)}\\
+  &=\frac ac+\frac{bc-ad}{c^2}\,
+        \frac1{z+\dfrac dc}.
+\end{align*}
+记
+\[
+  \alpha'=\frac{bc-ad}{c^2}\ne0,
+\]
+于是
+\[
+  \boxed{w=\frac ac+\frac{\alpha'}{z+d/c}}.
+\]
+因此可按以下顺序由基本变换复合得到：
+\[
+  z
+  \xmapsto{\text{①}}z+\frac dc
+  \xmapsto{\text{③}}\frac1{z+d/c}
+  \xmapsto{\text{②}}\frac{\alpha'}{z+d/c}
+  \xmapsto{\text{①}}\frac ac+\frac{\alpha'}{z+d/c}.
+\]
+即板书中的 \textbf{① $\to$ ③ $\to$ ② $\to$ ①}。
+
+若 $c=0$，由于 $ad-bc=ad\ne0$，
+\[
+  w=\frac ad\,z+\frac bd,
+\]
+只需伸缩旋转与平移两步。因此一般分式线性映射
+将广义圆映为广义圆。
+
+\paragraph{板书勘误（第 18 张）}
+在引入 $z+t$ 的中间变形中，需同时减去所增加的项：
+\[
+  az+b=a(z+t)+(b-at).
+\]
+若直接写作 $a(z+t)+b$，则不与原分子相等；
+上文已用 $t=d/c$ 补齐该项。板书最终的分解系数
+$\alpha'=(bc-ad)/c^2$ 是正确的。
+
+% 第 18 张板书结束；后续第 6 课笔记在这里继续追加。
