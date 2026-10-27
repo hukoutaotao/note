@@ -230,4 +230,52 @@ $\dfrac{1}{(1+z^2)^n}$ 在 $z=i$ 处有 $n$ 阶极点，
   &=\sum_{k=0}^{+\infty}
     (-1)^k\binom{n+k-1}{n-1}X^k.
 \end{align*}
-% 第 6 张板书到此为止。后续照片继续求 C_{-1}，不提前添加解答。
+% 第 6 张板书到此为止；第 7 张继续求 C_{-1}。
+
+% 第 7 张板书：提取 X^{n-1} 项并求 z=i 处的留数。
+由上一张板书
+\[
+  \frac{1}{(1+X)^n}
+  =\sum_{k=0}^{+\infty}(-1)^k
+    \binom{n+k-1}{n-1}X^k,
+\]
+知 $X^{n-1}$ 项的系数为
+\begin{align*}
+  (-1)^{n-1}\binom{2n-2}{n-1}
+  &=(-1)^{n-1}\binom{2(n-1)}{n-1}\\
+  &=(-1)^{n-1}\frac{[2(n-1)]!}{[(n-1)!]^2}.
+\end{align*}
+
+又
+\begin{align*}
+  \frac{1}{(1+z^2)^n}
+  &=\frac{1}{(z-i)^n}\,
+    \frac{1}{\bigl(z-i+2i\bigr)^n}\\
+  &=\frac{1}{(z-i)^n}\,
+    \frac{1}{(2i)^n}\,
+    \frac{1}{\left(1+\dfrac{z-i}{2i}\right)^n}\\
+  &=\frac{1}{2^n i^n}\,
+    \frac{1}{(z-i)^n}\,
+    \sum_{k=0}^{+\infty}(-1)^k
+    \binom{n+k-1}{n-1}X^k,
+    \qquad X=\frac{z-i}{2i}.
+\end{align*}
+由于
+\[
+  X^{n-1}=\frac{(z-i)^{n-1}}{(2i)^{n-1}},
+\]
+故其与 $(z-i)^{-n}$ 相乘恰好产生 $(z-i)^{-1}$ 项。因此
+\begin{align*}
+  \operatorname{Res}
+  \left(\frac{1}{(1+z^2)^n},i\right)
+  &=\frac{1}{2^n i^n}\,
+    (-1)^{n-1}\binom{2(n-1)}{n-1}
+    \frac{1}{(2i)^{n-1}}\\
+  &=\frac{(-1)^{n-1}}{2^{2n-1}i^{2n-1}}
+    \binom{2(n-1)}{n-1}\\
+  &=\frac{(-1)^{n-1}(-1)^n i}{2^{2n-1}}
+    \binom{2(n-1)}{n-1}\\
+  &=-\frac{i}{2^{2n-1}}\binom{2(n-1)}{n-1}.
+\end{align*}
+
+% 本张板书止于留数的计算；后续板书再代回 J_{1,n}。
