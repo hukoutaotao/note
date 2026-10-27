@@ -716,4 +716,98 @@ $c=0$ 的 Möbius 变换还固定无穷远点；
   但在 $\widehat{\mathbb C}$ 中固定 $\infty$。
 \end{enumerate}
 
-% 第 15 张板书结束；第 6 课后续照片继续在这里追加。
+% 第 15 张板书结束；第 16 张继续介绍基本变换。
+
+
+% 第 16 张板书：Möbius 变换的三种基本变换。
+\paragraph{三种基本变换}
+一般的 Möbius 变换为
+\[
+  w=\frac{az+b}{cz+d}.
+\]
+下面列出基本变换及其几何效果。
+
+\begin{enumerate}
+  \item \textbf{平移}
+  \[
+    w=z+\alpha,\qquad
+    \alpha=a+ib\ne0.
+  \]
+
+  \item \textbf{伸缩与旋转}
+  \[
+    w=\alpha z,\qquad \alpha\ne0.
+  \]
+  设
+  \[
+    \alpha=|\alpha|e^{i\theta_\alpha},\qquad
+    z=re^{i\theta},
+  \]
+  则
+  \[
+    w=|\alpha|r\,e^{i(\theta_\alpha+\theta)},
+    \qquad |w|=|\alpha|\,|z|.
+  \]
+  因此，$|\alpha|>1$ 为放大，$0<|\alpha|<1$ 为缩小；
+  $|\alpha|=1$ 时为旋转。特别地，
+  \[
+    |\alpha|=1\quad\Longrightarrow\quad
+    \alpha=e^{i\theta_\alpha},\quad
+    w=re^{i(\theta_\alpha+\theta)}.
+  \]
+  写 $z=x+iy$、$w=u+iv$，可用旋转矩阵表示为
+  \[
+    \begin{pmatrix}u\\v\end{pmatrix}
+    =
+    \underbrace{\begin{pmatrix}
+      \cos\theta_\alpha&-\sin\theta_\alpha\\
+      \sin\theta_\alpha&\cos\theta_\alpha
+    \end{pmatrix}}_{A(\theta_\alpha)}
+    \begin{pmatrix}x\\y\end{pmatrix}.
+  \]
+  且
+  \[
+    A^{-1}(\theta_\alpha)=A^{\mathsf T}(\theta_\alpha),
+  \]
+  即旋转矩阵为正交矩阵。
+
+  \item \textbf{倒数变换}
+  \[
+    w=\frac1z,\qquad z\ne0.
+  \]
+  令
+  \[
+    z=re^{i\theta}\quad\Longrightarrow\quad
+    w=\frac1r e^{-i\theta}.
+  \]
+  因此
+  \[
+    r>1\Longrightarrow |w|=\frac1r<1,\qquad
+    r\to+\infty\Longrightarrow |w|\to0,\qquad
+    r\to0^+\Longrightarrow |w|\to+\infty.
+  \]
+  也就是说，单位圆的内外互换，单位圆自身保持不变。
+  同时
+  \[
+    \theta\in(0,\pi)
+    \Longrightarrow
+    -\theta\in(-\pi,0)\equiv(\pi,2\pi)\pmod{2\pi},
+  \]
+  即上半平面映到下半平面。
+\end{enumerate}
+
+\paragraph{板书勘误（第 16 张）}
+\begin{enumerate}
+  \item 板书在讨论 $w=\alpha z$ 时，将 $|w|$ 与含有
+  $e^{i\theta}$ 的复数表达式连写。正确区分为
+  $w=|\alpha|r e^{i(\theta_\alpha+\theta)}$ 与
+  $|w|=|\alpha|r$。
+  \item 旋转矩阵须与向量的行、列约定一致。
+  板书采用行向量 $(x,y)$ 右乘
+  $\left(\begin{smallmatrix}\cos\theta&-\sin\theta\\
+  \sin\theta&\cos\theta\end{smallmatrix}\right)$，
+  其方向与复数乘以 $e^{i\theta}$ 不一致。
+  上文改为列向量左乘该矩阵。
+\end{enumerate}
+
+% 第 16 张板书结束；后续第 6 课笔记继续追加。
