@@ -558,4 +558,162 @@ $\dfrac{1}{(1+z^2)^n}$ 在 $z=i$ 处有 $n$ 阶极点，
 两者只差非零数倍，因而表示同一逆 Möbius 变换。
 \end{enumerate}
 
-% 第 12 张板书结束，后续从这里继续追加。
+% 第 12 张板书结束；第 13 张开始介绍 Möbius 变换的复合。
+
+
+% 第 13 张板书：Möbius 变换的单位元、复合运算和群。
+\paragraph{恒等变换及复合}
+单位矩阵
+\[
+  I_2=\begin{pmatrix}1&0\\0&1\end{pmatrix}
+\]
+对应恒等变换 $w=z$（即 $a=d=1$，$b=c=0$）。
+
+令
+\[
+  A_1=\begin{pmatrix}a_1&b_1\\c_1&d_1\end{pmatrix},
+  \quad
+  A_2=\begin{pmatrix}a_2&b_2\\c_2&d_2\end{pmatrix},
+\]
+分别对应
+\[
+  w_1(z)=\frac{a_1z+b_1}{c_1z+d_1},\qquad
+  w_2(w)=\frac{a_2w+b_2}{c_2w+d_2}.
+\]
+先作 $w_1$，再作 $w_2$，得到
+\begin{align*}
+  (w_2\circ w_1)(z)
+  &=\frac{a_2\dfrac{a_1z+b_1}{c_1z+d_1}+b_2}
+          {c_2\dfrac{a_1z+b_1}{c_1z+d_1}+d_2}\\
+  &=\frac{a_2(a_1z+b_1)+b_2(c_1z+d_1)}
+          {c_2(a_1z+b_1)+d_2(c_1z+d_1)}\\
+  &=\frac{(a_2a_1+b_2c_1)z+(a_2b_1+b_2d_1)}
+          {(c_2a_1+d_2c_1)z+(c_2b_1+d_2d_1)}\\
+  &=\frac{Az+B}{Cz+D},
+\end{align*}
+其中
+\[
+  \begin{pmatrix}A&B\\C&D\end{pmatrix}
+  =A_2A_1
+  =\begin{pmatrix}
+    a_2a_1+b_2c_1&a_2b_1+b_2d_1\\
+    c_2a_1+d_2c_1&c_2b_1+d_2d_1
+   \end{pmatrix},
+\]
+且
+\[
+  AD-BC
+  =\det(A_2A_1)
+  =(a_2d_2-b_2c_2)(a_1d_1-b_1c_1)\ne0.
+\]
+故两个 Möbius 变换的复合仍为 Möbius 变换。
+
+\paragraph{群结构}
+记这些变换所构成的集合为 $G$。其复合运算满足
+封闭性、结合律，并具有恒等元及逆元：
+\[
+  a,b\in G\Rightarrow a\circ b\in G,\qquad
+  a\in G\Rightarrow a^{-1}\in G,\qquad
+  \mathrm{id}\circ a=a\circ\mathrm{id}=a.
+\]
+一般不满足交换律：
+\[
+  A_1A_2\ne A_2A_1,\qquad
+  w_1\circ w_2\ne w_2\circ w_1
+  \quad\text{（一般情形）}.
+\]
+由于比例相差非零常数的矩阵对应相同变换，
+此处 $G$ 可以用 $\mathrm{PGL}(2,\mathbb C)$ 表示。
+
+% 第 14 张板书：不动点及其代数方程。
+\paragraph{不动点（Fixed Point）}
+若 $f(z_0)=z_0$，则称 $z_0$ 为 $f$ 的一个不动点。
+对于
+\[
+  f(z)=\frac{az+b}{cz+d},\qquad ad-bc\ne0,
+\]
+有限不动点满足
+\begin{align*}
+  \frac{az+b}{cz+d}=z
+  &\iff az+b=cz^2+dz\\
+  &\iff cz^2+(d-a)z-b=0.
+\end{align*}
+
+\begin{enumerate}
+  \item 若 $c\ne0$，上述方程为二次方程，判别式为
+  \[
+    \Delta=(d-a)^2+4bc.
+  \]
+  当 $\Delta\ne0$ 时有两个不同的不动点；
+  当 $\Delta=0$ 时有一个二重不动点。
+  \item 若 $c=0$，由于 $ad\ne0$，则
+  \[
+    (d-a)z=b.
+  \]
+  当 $d\ne a$ 时，有一个有限不动点
+  \[
+    z=\frac{b}{d-a}.
+  \]
+  当 $d=a$ 且 $b\ne0$ 时，没有有限不动点；
+  当 $d=a$ 且 $b=0$ 时，$f(z)\equiv z$，
+  每一点都是不动点。
+\end{enumerate}
+
+% 第 15 张板书：典型变换的不动点及几何联想。
+\paragraph{不动点的几个例子}
+\begin{enumerate}
+  \item 平移变换
+  \[
+    w=z+\alpha,\qquad \alpha\ne0.
+  \]
+  若 $\alpha=a+ib$、$z=x+iy$、$w=x'+iy'$，则
+  \[
+    x'=x+a,\qquad y'=y+b.
+  \]
+  它在复平面没有有限不动点。
+  \item 仿射变换
+  \[
+    w=az+b,\qquad a\ne0.
+  \]
+  当 $a\ne1$ 时，有限不动点为
+  \[
+    z=\frac{b}{1-a}.
+  \]
+  \item 一般分式线性变换
+  \[
+    w=\frac{az+b}{cz+d},\qquad
+    c\ne0,\quad ad-bc\ne0,
+  \]
+  其有限不动点由上述二次方程确定。
+  \item 恒等变换 $w\equiv z$：所有点均为不动点。
+\end{enumerate}
+在扩充复平面 $\widehat{\mathbb C}=\mathbb C\cup\{\infty\}$ 中，
+$c=0$ 的 Möbius 变换还固定无穷远点；
+因此非恒等 Möbius 变换在球面上有一个或两个不同的不动点。
+
+\paragraph{几何补充（板书后半部分）}
+板书由 Euclid Geometry（欧氏几何）转入球面与其他几何的讨论：
+欧氏平面中的平行直线，以及三角形内角和
+\[
+  \alpha+\beta+\gamma=180^\circ=\pi.
+\]
+板书接着画出了球面上的曲线、大圆与两点间的连接，
+讨论球面上的\textbf{测地线}：球面上的测地线沿大圆，
+两点间较短的大圆弧在非对径情形下是最短路径。
+右侧提及“罗巴切夫斯基几何”和“Gauss--B.”；
+后者具体所指待后续板书确认。
+
+\paragraph{板书勘误（第 13--15 张）}
+\begin{enumerate}
+  \item 复合 $w_2\circ w_1$ 对应的矩阵顺序是 $A_2A_1$，
+  而不是 $A_1A_2$。
+  \item 不动点方程的二次项应为 $cz^2$，
+  不能写作 $(c-a)z^2$；相应的分情况条件是
+  $c\ne0$ 或 $c=0$，判别式为
+  $\Delta=(d-a)^2+4bc$。
+  \item 对不动点个数应区分普通复平面与扩充复平面：
+  平移变换在 $\mathbb C$ 内无不动点，
+  但在 $\widehat{\mathbb C}$ 中固定 $\infty$。
+\end{enumerate}
+
+% 第 15 张板书结束；第 6 课后续照片继续在这里追加。
