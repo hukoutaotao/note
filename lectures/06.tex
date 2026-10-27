@@ -1,6 +1,119 @@
-% 第 6 课。课次日期请在收到信息后补充。
-% 本文件仅放正文：不要写 \documentclass、\begin{document}、\end{document}。
-% 按板书照片顺序追加定义、定理、证明、例题及必要的答疑说明。
+% 第 6 课：板书第 1--3 张（后续照片继续追加于文件末尾）。
+% 按老师推导顺序整理；对可确认的板书笔误作了统一修正，见文末「板书勘误」。
 \section*{第 6 课}
 
-% 从这里开始追加第 6 课的板书笔记。
+% 第 1 张板书：积分定义、缩放及上半圆围道。
+\paragraph{例 1.}
+求实积分
+\[
+  I_{r,n}=\int_0^{+\infty}\frac{dx}{x^{2n}+r^{2n}},
+  \qquad r>0,\quad n\in\mathbb{N}^{+}.
+\]
+
+\paragraph{解.}
+作变量代换 $t=x/r$，得
+\begin{align*}
+  I_{r,n}
+  &=\frac{1}{r^{2n}}\int_0^{+\infty}
+    \frac{dx}{1+(x/r)^{2n}}\\
+  &=\frac{1}{r^{2n-1}}\int_0^{+\infty}
+    \frac{dt}{1+t^{2n}}
+   =\frac{1}{r^{2n-1}}I_{1,n}.
+\end{align*}
+因此只需求 $I_{1,n}$。
+
+令 $R>1$，取上半平面内的正向闭围道
+\[
+  \Gamma_R=[-R,R]\cup C_R,\qquad
+  C_R:\ z=Re^{i\varphi},\quad 0\le\varphi\le\pi.
+\]
+由留数定理，
+\begin{align*}
+  \oint_{\Gamma_R}\frac{dz}{1+z^{2n}}
+  &=\int_{-R}^{R}\frac{dx}{1+x^{2n}}
+    +\int_{C_R}\frac{dz}{1+z^{2n}}\\
+  &=2\pi i\sum_{k=1}^{n}
+    \operatorname{Res}\left(\frac{1}{1+z^{2n}},z_k\right),
+  \tag{*}
+\end{align*}
+其中 $z_1,\ldots,z_n$ 为上半平面内的极点。
+
+% 第 2 张板书：大圆弧消失、极点位置及留数求和。
+分子次数为 $0$，分母次数为 $2n\ge2$（$n\ge1$），因此当
+$R\to+\infty$ 时，上半圆弧上的积分趋于 $0$。具体地，
+\[
+  \left|\int_{C_R}\frac{dz}{1+z^{2n}}\right|
+  \le\frac{\pi R}{R^{2n}-1}\xrightarrow[R\to+\infty]{}0.
+\]
+
+在式 $(*)$ 中，极点满足
+\[
+  z^{2n}=-1=e^{(2k-1)\pi i}.
+\]
+取上半平面内的 $n$ 个根：
+\[
+  z_k=e^{\frac{(2k-1)\pi i}{2n}},
+  \qquad k=1,2,\ldots,n.
+\]
+它们均为一阶极点，所以
+\[
+  \operatorname{Res}\left(\frac{1}{1+z^{2n}},z_k\right)
+  =\frac{1}{2n z_k^{2n-1}}.
+\]
+由于 $z_k^{2n}=-1$，有
+\[
+  \frac{1}{z_k^{2n-1}}=-z_k.
+\]
+令 $R\to+\infty$，从式 $(*)$ 得
+\begin{align*}
+  2I_{1,n}
+  &=2\pi i\sum_{k=1}^{n}\frac{1}{2n z_k^{2n-1}}\\
+  &=\frac{\pi i}{n}\sum_{k=1}^{n}\frac{1}{z_k^{2n-1}}
+   =-\frac{\pi i}{n}\sum_{k=1}^{n}z_k.
+\end{align*}
+
+令
+\[
+  \theta=\frac{\pi}{2n},\qquad
+  q=e^{2i\theta}=e^{\pi i/n},
+\]
+则
+\[
+  z_k=\frac{q^k}{e^{i\theta}},
+  \qquad q^n=e^{\pi i}=-1.
+\]
+
+% 第 3 张板书：等比数列求和及欧拉公式化简。
+因此
+\begin{align*}
+  I_{1,n}
+  &=-\frac{\pi i}{2n e^{i\theta}}\sum_{k=1}^{n}q^k\\
+  &=-\frac{\pi i}{2n e^{i\theta}}\,
+    \frac{q(1-q^n)}{1-q}\\
+  &=-\frac{\pi i}{n}\,
+    \frac{e^{i\theta}}{1-e^{2i\theta}}\\
+  &=\frac{\pi i}{n}\,
+    \frac{e^{i\theta}}{e^{2i\theta}-1}\\
+  &=\frac{\pi}{2n\sin\theta},
+\end{align*}
+其中使用欧拉公式
+\[
+  \sin\theta=\frac{e^{i\theta}-e^{-i\theta}}{2i}
+            =\frac{e^{2i\theta}-1}{2i e^{i\theta}}.
+\]
+最终
+\[
+  \boxed{
+    I_{r,n}=\frac{\pi}
+    {2n\,r^{2n-1}\sin\bigl(\frac{\pi}{2n}\bigr)}
+  },\qquad r>0,\quad n\in\mathbb{N}^{+}.
+\]
+
+\paragraph{板书勘误（第 2--3 张）}
+第 2 张的 $q^n$ 处写作 $+1$，应为 $-1$，因为
+$q=e^{\pi i/n}$，从而 $q^n=e^{\pi i}=-1$。
+另两张板书中的 $\theta$ 取值前后不一致；上文统一取
+$\theta=\pi/(2n)$，并相应写为 $q=e^{2i\theta}$，
+避免与 $q=e^{\pi i/n}$ 冲突。
+
+% 之后的第 6 课板书从这里继续追加，不另起导言区。
