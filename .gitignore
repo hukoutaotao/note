@@ -17,7 +17,7 @@
 *.pdf
 
 # 已归档的旧版第 5 课 PDF（有意纳入版本控制）
-!lectures/05.pdf
+!lecture05.pdf
 
 # 编辑器与操作系统
 .DS_Store

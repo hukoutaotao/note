@@ -3,10 +3,10 @@
 本仓库是复变函数板书转 LaTeX 的课程笔记，**不是软件项目**。用户每次上传板书照片时，以用户给出的课次与照片顺序为准。阅读 README.md 获取最新索引。
 
 ## 当前工作位置
-- 当前第 6 课：`lectures/06.tex`，只向本文件追加第 6 课笔记。
+- 当前第 6 课：`lecture06.tex`，只向本文件追加第 6 课笔记。
 - `main.tex`：编译全部课次，`current.tex`：只编译当前课。
 - `preamble.tex`：所有入口共用的导言区。
-- `lectures/05.tex`：已归档的第 5 课（含课堂问题答疑）。除非用户要求修订或发现明确勘误，不要重写。
+- `lecture05.tex`：已归档的第 5 课（含课堂问题答疑）。除非用户要求修订或发现明确勘误，不要重写。
 
 ## 用户长期有效的要求（优先遵守）
 - 每批板书按图中先后顺序转写，直接以老师的过程为主；只做保证推导流畅所需的最少整理，不主动增加大量解释。
@@ -20,19 +20,23 @@
 3. 对看不清的手写内容添加可搜索的「待确认」标注并说明疑点；不要把猜测当成老师原文。
 4. 用户要求补全的证明或讲解要明确标为「补充推导」「学习卡点」或类似标题，和原板书区分。
 5. 老师强调的考试重点及典型例题保留醒目标识；推导中的纠错应保留说明，不要悄悄抹掉来源。
-6. `lectures/NN.tex` **只写正文**，不放 `\documentclass`、`\begin{document}` 或 `\end{document}`。
+6. `lectureNN.tex` **只写正文**，不放 `\documentclass`、`\begin{document}` 或 `\end{document}`。
 7. 不更改旧课笔记的内容、编号、已经完成的推导和数学条件，除非用户特别要求。
 8. 每次完成录入后更新 README 的课次主题/进度（有已知信息时），并在可行时用 `latexmk -xelatex current.tex` 检查编译。
 9. 只提交有意义的源码和文档；不要提交临时中间文件。
 
 ## 新开课流程
-新建 `lectures/07.tex`（下一课按序编号），在 `main.tex` 按序追加 `\\clearpage` 和 `\input{lectures/07.tex}`，将 `current.tex` 改为指向它，同时更新 README 索引。课次编号不等于章节编号，不要擅自从第五章跳到第六章。
+新建 `lecture07.tex`（下一课按序编号），在 `main.tex` 按序追加 `\\clearpage` 和 `\input{lecture07.tex}`，将 `current.tex` 改为指向它，同时更新 README 索引。课次编号不等于章节编号，不要擅自从第五章跳到第六章。
 
 用户交给 AI 的主要任务是准确识别、持续维护并同步仓库；不是让用户手动编辑大量 LaTeX。
 
 ## LaTeX 根文件及编译（重要）
 - `current.tex`（当前课）和 `main.tex`（全部课次）是唯二可以独立编译的入口，各自拥有 `\documentclass`。
 - `preamble.tex` 只存放共享宏包和标题等设置，不应再出现 `\documentclass`；LaTeX Workshop 曾因这里放置 `\documentclass` 而错误选择编译入口。
-- `preamble.tex` 应以 `% !TEX root = current.tex` 开头；`lectures/05.tex` 指向 `../main.tex`，当前课 `lectures/06.tex` 指向 `../current.tex`，新增课次也须维护根文件注释。
-- `.vscode/settings.json` 需保持 `latex-workshop.latex.build.enableMagicComments = true`。
+- `preamble.tex` 应以 `% !TEX root = current.tex` 开头；`lecture05.tex` 指向 `main.tex`，当前课 `lecture06.tex` 指向 `current.tex`，新增课次也须维护根文件注释。
+- `note.code-workspace` 的 `settings` 需保持 `latex-workshop.latex.build.enableMagicComments = true`。
 - 用 `latexmk -xelatex current.tex` 或 `latexmk -xelatex main.tex` 构建；不要直接编译子文件或 `preamble.tex`。
+
+## 目录约定
+- 课程资料只保留“分类文件夹 → 文件”两层；各课次源码直接放在仓库根目录，命名为 `lectureNN.tex`，不要重建 `lectures` 子目录。
+- Git 隐藏目录 `.git` 保持原状；信号与系统的批注工具已移回该课程，不再提交到本仓库。

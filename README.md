@@ -6,8 +6,8 @@
 
 | 课次 | 日期 | 内容概览 | 源码 | PDF |
 | --- | --- | --- | --- | --- |
-| 第 5 课 | 2026-10-19 | 解析函数零点与唯一性、奇点分类、Laurent 展开与留数、三角积分及含正弦的广义积分；包含课堂答疑与重点例题 | [lectures/05.tex](lectures/05.tex) | [原仓库归档 PDF](lectures/05.pdf) |
-| **第 6 课（当前）** | 待填写 | 已录入第 1--18 张：留数法广义积分、共形映射和 Möbius 变换；第 17--18 张新增倒数变换下圆与直线的方程、广义圆保持性及 Möbius 分解（含勘误） | [lectures/06.tex](lectures/06.tex) | 编译 `current.tex` |
+| 第 5 课 | 2026-10-19 | 解析函数零点与唯一性、奇点分类、Laurent 展开与留数、三角积分及含正弦的广义积分；包含课堂答疑与重点例题 | [lecture05.tex](lecture05.tex) | [原仓库归档 PDF](lecture05.pdf) |
+| **第 6 课（当前）** | 待填写 | 已录入第 1--18 张：留数法广义积分、共形映射和 Möbius 变换；第 17--18 张新增倒数变换下圆与直线的方程、广义圆保持性及 Möbius 分解（含勘误） | [lecture06.tex](lecture06.tex) | 编译 `current.tex` |
 
 > 第 5 课 PDF 是迁移前仓库已有的文件，**不是本次重新编译的产物**；如需最新内容，请按下文编译 LaTeX 源码。
 
@@ -15,17 +15,22 @@
 
 ```text
 note/
-├── README.md           # 课程索引和使用说明
-├── AGENTS.md           # 供 AI 识别板书/维护笔记时遵循的规则
-├── .gitignore          # 忽略 LaTeX 编译产物
-├── preamble.tex        # 共用中文排版和数学公式宏包
-├── main.tex            # 全部课次合并编译入口
-├── current.tex         # 仅编译当前第 6 课
-└── lectures/
-    ├── 05.tex          # 第 5 课正文（由原 main.tex 完整迁移）
-    ├── 05.pdf          # 原仓库的 PDF 归档
-    └── 06.tex          # 第 6 课正文（后续从这里追加）
+├── README.md                # 课程索引和使用说明
+├── AGENTS.md                # 板书录入和维护规则
+├── .gitignore               # 忽略编译中间文件和新生成的 PDF
+├── note.code-workspace      # VS Code 工作区及 LaTeX 设置
+├── preamble.tex             # 共用宏包与版式
+├── main.tex                 # 全部课次入口
+├── current.tex              # 当前第 6 课入口
+├── lecture05.tex            # 第 5 课正文
+├── lecture05.pdf            # 原仓库历史 PDF
+└── lecture06.tex            # 第 6 课正文
 ```
+
+源码直接存放在 `note` 内，保持课程目录“分类文件夹 → 文件”的两层结构。
+`.git` 是 Git 自身维护的隐藏版本数据库，不属于课程资料的分类层级。
+新生成的 `main.pdf`、`current.pdf` 留在本地阅读，默认不提交。
+
 
 ## 如何阅读和编译
 
@@ -40,11 +45,11 @@ note/
 
 本仓库只将 `current.tex`（仅第 6 课）和 `main.tex`（全部课次）作为主文件，二者均自行声明 `\documentclass`；`preamble.tex` 仅保存共享宏包、定理环境和标题，不可直接编译。
 
-为避免 LaTeX Workshop 错认根文件，在 `preamble.tex` 和各课次源码顶部添加了 `% !TEX root = ...`。本仓库通过 `.vscode/settings.json` 启用对这些注释的识别。若原先误编译过 `preamble.tex`，请先执行 `git pull`、用 VS Code 打开整个 `note` 文件夹，然后重新运行“Build LaTeX project”。终端始终可以直接运行 `latexmk -xelatex current.tex`。
+为避免 LaTeX Workshop 错认根文件，在 `preamble.tex` 和各课次源码顶部添加了 `% !TEX root = ...`。本仓库通过 `note.code-workspace` 启用对这些注释的识别。用 VS Code 打开此工作区文件，再运行“Build LaTeX project”。终端始终可以直接运行 `latexmk -xelatex current.tex`。
 
 ## 如何继续记录第 6 课
 
-1. 上传本课板书照片，指出其属于「第 6 课」及照片顺序；直接在 `lectures/06.tex` 追加 LaTeX 正文。
+1. 上传本课板书照片，指出其属于「第 6 课」及照片顺序；直接在 `lecture06.tex` 追加 LaTeX 正文。
 2. 保留第 5 课原文，不因为开启新课程而清空或覆盖旧笔记。
 3. 按板书顺序记录定义、定理、证明与例题；重复照片的重叠部分只保留一次。
 4. 原板书字迹不清、公式存在多种解释时，显式标注「待确认」，不要凭空补造。
@@ -55,13 +60,13 @@ note/
 
 以「第 7 课」为例：
 
-1. 新建 `lectures/07.tex`，写入 `\section*{第 7 课}`，并继续追加本课正文。
-2. 在 `main.tex` 最后一个 `\input` 后增加 `\\clearpage` 和 `\input{lectures/07.tex}`，保留旧课次。
-3. 把 `current.tex` 的 `\input{lectures/06.tex}` 替换为 `\input{lectures/07.tex}`，使其只显示第 7 课。
+1. 新建 `lecture07.tex`，写入 `\section*{第 7 课}`，并继续追加本课正文。
+2. 在 `main.tex` 最后一个 `\input` 后增加 `\\clearpage` 和 `\input{lecture07.tex}`，保留旧课次。
+3. 把 `current.tex` 的 `\input{lecture06.tex}` 替换为 `\input{lecture07.tex}`，使其只显示第 7 课。
 4. 更新本 README 的课次索引和「当前」标签；有日期或主题时再填写，未知信息不要推测。
 5. 编译检查。不要提交 `.aux`、`.log`、`.synctex.gz` 等中间产物；普通新生成的 PDF 默认也不纳入 Git 跟踪。
 
-**文件约定**：`lectures/NN.tex` 只写正文，不能再写导言区、`\begin{document}` 或 `\end{document}`；共用排版命令在 `preamble.tex` 中统一维护。
+**文件约定**：`lectureNN.tex` 只写正文，不能再写导言区、`\begin{document}` 或 `\end{document}`；共用排版命令在 `preamble.tex` 中统一维护。
 
 ## 固定的板书录入要求（以后每次都遵守）
 
